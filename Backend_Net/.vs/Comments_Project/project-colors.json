@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d481aeec-6ac5-494c-9b38-b13744c0b8f2": {
+      "ProjectGuid": "d481aeec-6ac5-494c-9b38-b13744c0b8f2",
+      "DisplayName": "CommentsApp.RestAPI",
+      "ColorIndex": 0
+    },
+    "770f8b1f-a3a2-4631-ad71-84d4f5a13dc9": {
+      "ProjectGuid": "770f8b1f-a3a2-4631-ad71-84d4f5a13dc9",
+      "DisplayName": "CommentsApp.Core",
+      "ColorIndex": 1
+    },
+    "fc545a2b-cf93-4a21-8cac-f7ab6c337f8f": {
+      "ProjectGuid": "fc545a2b-cf93-4a21-8cac-f7ab6c337f8f",
+      "DisplayName": "CommentsApp.DB",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
