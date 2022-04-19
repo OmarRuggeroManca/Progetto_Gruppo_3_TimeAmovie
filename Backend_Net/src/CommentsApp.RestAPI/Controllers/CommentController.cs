@@ -20,6 +20,7 @@ namespace CommentsApp.RestAPI.Controllers
             _applicationService = applicationService;
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet]
         public ActionResult<List<CommentDTO>> GetCommentList()
         {
@@ -27,6 +28,7 @@ namespace CommentsApp.RestAPI.Controllers
             return Ok(commentList.Select(comment => CommentMapper.From(comment)));
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet]
         [Route("{comment-id}")]
         public ActionResult<CommentDTO> GetCommentById([FromRoute(Name = "comment-id")] int commentId)
@@ -46,6 +48,7 @@ namespace CommentsApp.RestAPI.Controllers
             }
         }
 
+        [EnableCors("MyPolicy")]
         [HttpPost]
         public ActionResult<CommentDTO> CreateComment([FromBody] CommentCreationParameters parameters)
         {
@@ -65,6 +68,7 @@ namespace CommentsApp.RestAPI.Controllers
             }
         }
 
+        [EnableCors("MyPolicy")]
         [HttpDelete]
         [Route("{comment-id}")]
         public ActionResult<CommentDTO> DeleteCommentById([FromRoute(Name = "comment-id")] int commentId)
@@ -84,6 +88,7 @@ namespace CommentsApp.RestAPI.Controllers
             }
         }
 
+        [EnableCors("MyPolicy")]
         [HttpPut]
         [Route("{comment-id}")]
         public ActionResult<CommentDTO> UpdateComment(

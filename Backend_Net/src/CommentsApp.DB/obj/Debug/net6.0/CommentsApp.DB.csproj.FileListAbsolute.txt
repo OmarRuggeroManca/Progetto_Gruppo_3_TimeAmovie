@@ -32,3 +32,20 @@ C:\Users\utente\Desktop\GIT\Progetto_TNV\Progetto_Gruppo_3_TimeAmovie\Backend_Ne
 C:\Users\utente\Desktop\GIT\Progetto_TNV\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.pdb
 C:\Users\utente\Desktop\GIT\Progetto_TNV\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.genruntimeconfig.cache
 C:\Users\utente\Desktop\GIT\Progetto_TNV\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\ref\CommentsApp.DB.dll
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\CommentsApp.DB.deps.json
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\CommentsApp.DB.runtimeconfig.json
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\CommentsApp.DB.dll
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\ref\CommentsApp.DB.dll
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\CommentsApp.DB.pdb
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\bin\Debug\net6.0\CommentsApp.Core.pdb
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.csproj.AssemblyReference.cache
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.AssemblyInfoInputs.cache
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.AssemblyInfo.cs
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.csproj.CoreCompileInputs.cache
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.csproj.CopyComplete
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.dll
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\ref\CommentsApp.DB.dll
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.pdb
+C:\Users\Ciao\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.DB\obj\Debug\net6.0\CommentsApp.DB.genruntimeconfig.cache
