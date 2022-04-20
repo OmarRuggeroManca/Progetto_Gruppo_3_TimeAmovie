@@ -1,0 +1,25 @@
+<form #movieForm="ngForm" (submit)="createComment(movieForm)">
+    <input
+        [ngModel]
+        name="user_id"
+        placeholder="user_id"
+        type="text" 
+    >
+
+    <input
+        [ngModel]
+        name="movie_id"
+        placeholder="movie_id"
+
+        type="text" 
+    >
+
+    <input
+        [ngModel]
+        name="movie_comment"
+        placeholder="comment"
+
+        type="text" 
+    >
+    <button type="submit">Create Pizza</button>
+  </form>

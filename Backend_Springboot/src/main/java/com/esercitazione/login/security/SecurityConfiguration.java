@@ -35,7 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(Datasource)
-                .usersByUsernameQuery("select username,password,enabled "   //Prende gli utenti tramite query con le password criptate
+                //Prende gli utenti tramite query con le password criptate
+                .usersByUsernameQuery("select username,password,enabled "
                         + "from users "
                         + "where username = ?");
     }
@@ -44,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       http.csrf().disable()
+        http.csrf().disable()
                .authorizeRequests()
                .antMatchers("/login/adduser/")
                .permitAll()
@@ -71,7 +72,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(Arrays.asList("https://hoppscotch.io/it/"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
                 "Accept", "Authorization", "Origin, Accept", "X-Requested-With",
                 "Access-Control-Request-Method", "Access-Control-Request-Headers"));

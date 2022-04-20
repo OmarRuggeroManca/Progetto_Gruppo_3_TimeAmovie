@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
+  login(user: NgForm) {
+    this.httpClient.post(`http://localhost:8080/login/access/`, user.value).subscribe({
+      next: (res) => console.log('res'),
+      error: () => console.log('error')
+    });
+  } 
 }
