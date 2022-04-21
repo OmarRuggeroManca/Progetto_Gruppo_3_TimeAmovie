@@ -16,7 +16,7 @@ class MovieCollection extends ResourceCollection
     {
         return [
             'data'=>$this->collection,
-            'author'=> 'Davide Ortu'
+            'author'=> 'Gruppo Meraviglia'
         ];
     }
 }

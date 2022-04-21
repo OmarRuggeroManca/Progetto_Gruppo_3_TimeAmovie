@@ -23,4 +23,8 @@
     >
     <button type="submit">Create Pizza</button>
   </form>
-
+  
+  <div *ngFor="let film of preferiti" >
+    <p class="elenco"> {{ film.movie_id }}</p>
+  </div>
+  

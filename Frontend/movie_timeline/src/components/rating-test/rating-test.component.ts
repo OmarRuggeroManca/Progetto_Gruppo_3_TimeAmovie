@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MovieId } from 'src/models/movieId';
+import { MovieFav } from 'src/models/MovieFav';
+import { BackendAPIService } from 'src/services/backend-api.service';
 
 @Component({
   selector: 'app-rating-test',
@@ -9,16 +10,18 @@ import { MovieId } from 'src/models/movieId';
   styleUrls: ['./rating-test.component.scss']
 })
 export class RatingTestComponent implements OnInit {
-  preferiti: MovieId[] = [];
-  constructor(private httpClient: HttpClient) { }
+  
+  preferiti: MovieFav[] = [];
+  constructor(private httpClient: HttpClient,
+              private backendAPIService: BackendAPIService) { }
 
   ngOnInit(): void {
-    this.httpClient.get<MovieId[]>(`http://localhost:5000/preferiti`).subscribe({
-      next: (res) => this.preferiti = res,
+    this.backendAPIService.getListaPreferiti().subscribe({
+      next: (res) => this.preferiti = res,     
       error: () => console.log('error')
     });
 
-    console.log(this.preferiti);
+    
   }
 
   createComment(comment: NgForm) {

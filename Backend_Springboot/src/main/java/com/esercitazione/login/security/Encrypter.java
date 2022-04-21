@@ -3,7 +3,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 
 
-//FUNZIONE DA CORRREGGERE
 public class Encrypter {
     public static String encrypt(String message) {
         try{
