@@ -22,10 +22,8 @@ export class LoginComponent implements OnInit {
 
   login(user: NgForm) {
     this.httpClient.post<User>(this.serviceUrl, user.value).subscribe({
-      next: this.userLogged = user.value,
+      next: (res) => this.userLogged = res,
       error: () => console.log('error')
     });
-
-    console.log(this.userLogged);
   } 
 }
