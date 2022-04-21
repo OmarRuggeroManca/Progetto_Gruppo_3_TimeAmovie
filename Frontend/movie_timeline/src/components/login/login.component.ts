@@ -10,13 +10,15 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  private serviceUrl = 'http://localhost:8080/login/access/';
+
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   login(user: NgForm) {
-    this.httpClient.post(`http://localhost:8080/login/access/`, user.value).subscribe({
+    this.httpClient.post(this.serviceUrl, user.value).subscribe({
       next: (res) => console.log('res'),
       error: () => console.log('error')
     });

@@ -2,6 +2,7 @@ package com.esercitazione.login.service;
 
 import com.esercitazione.login.DAO.UserRepositoryDAO;
 import com.esercitazione.login.model.User;
+import com.esercitazione.login.security.Crypto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,8 +13,7 @@ import java.util.Optional;
 public class UserService {
    UserRepositoryDAO userDAO;
 
-   @Autowired
-   PasswordEncoder passwordEncoder;
+
 
 
     @Autowired
@@ -26,7 +26,7 @@ public class UserService {
         particolare la password viene criptata e salvata nel DB per questioni di security
      */
     public String addUser(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(Crypto.encrypt(user.getPassword()));
         user.setEnabled((byte) 1);
         user.setAuthorities("ROLE_USER");
         User result = userDAO.save(user);
@@ -52,9 +52,10 @@ public class UserService {
     che password, in particolare quest'ultima sarà criptata per questioni di security.
      */
     public User userLogin(User login) {
+        String passwordCriptatissima = Crypto.encrypt(login.getPassword());
         if (login.getPassword() != null && login.getUsername() != null) {
             User credenziali = userDAO.findByUsername(login.getUsername());
-            if (passwordEncoder.matches(login.getPassword(), credenziali.getPassword())) {
+            if (login.getPassword().equals(passwordCriptatissima)) {
                 return credenziali;
             }
         } else {

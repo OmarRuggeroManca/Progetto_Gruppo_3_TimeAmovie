@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Entity;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/login")
 public class UserController {
@@ -22,25 +22,25 @@ public class UserController {
 
     //CRUD
 
-    @CrossOrigin(origins = "*")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/adduser")
     public String addUser(@RequestBody User user){  //metodo che permette l'aggiunta di un User
         return userService.addUser(user);
     }
 
-    @CrossOrigin(origins = "*")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/access/")
     public User userLogin(@RequestBody User login) {  //metodo che permette il login di un User e rende username e password (criptata)
             return userService.userLogin(login);
     }
 
-    @CrossOrigin(origins = "*")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     public User getUserById(@PathVariable("id") int id){ //metodo che permette la ricerca di un user tramite il suo id
         return userService.getUserById(id);
     }
 
-    @CrossOrigin(origins = "*")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/")
     public Iterable<User> allUsers(){   //metodo che permette di visualizzare tutta la lista degli utenti presenti nel DB
         return userService.allUsers();
