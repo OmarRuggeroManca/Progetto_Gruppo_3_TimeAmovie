@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/models/User';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

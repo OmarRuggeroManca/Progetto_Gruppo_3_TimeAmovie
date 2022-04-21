@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieComponent } from '../components/movie/movie.component';
 import { TimelineComponent } from '../components/timeline/timeline.component';
 import { HomeComponent } from '../components/home/home.component';
+import { RatingTestComponent } from '../components/rating-test/rating-test.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomeComponent } from '../components/home/home.component';
     LoginComponent,
     MovieComponent,
     TimelineComponent,
-    HomeComponent
+    HomeComponent,
+    RatingTestComponent
   ],
   imports: [
     BrowserModule,
