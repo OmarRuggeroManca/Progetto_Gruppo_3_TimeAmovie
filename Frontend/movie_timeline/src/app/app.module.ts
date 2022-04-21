@@ -7,13 +7,18 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 import { LoginComponent } from '../components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieComponent } from '../components/movie/movie.component';
+import { TimelineComponent } from '../components/timeline/timeline.component';
+import { HomeComponent } from '../components/home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    MovieComponent
+    MovieComponent,
+    TimelineComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

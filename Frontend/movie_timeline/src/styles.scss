@@ -1,7 +1,10 @@
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400;700;900&display=swap');
 
 
 body {
     margin : 20px;
-    
+    background-color: #0E0E10;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 400;
 }
