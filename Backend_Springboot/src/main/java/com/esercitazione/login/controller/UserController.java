@@ -29,7 +29,7 @@ public class UserController {
     }
 
     //@CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/access/")
+    @PostMapping("/access")
     public User userLogin(@RequestBody User login) {  //metodo che permette il login di un User e rende username e password (criptata)
             return userService.userLogin(login);
     }

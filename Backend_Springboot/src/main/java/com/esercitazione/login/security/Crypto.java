@@ -2,6 +2,8 @@ package com.esercitazione.login.security;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
+
+//FUNZIONE DA CORRREGGERE
 public class Crypto {
     public static String encrypt(String message) {
         try{

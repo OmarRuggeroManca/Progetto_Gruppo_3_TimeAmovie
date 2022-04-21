@@ -13,24 +13,6 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private byte enabled;
-    private String authorities;
-
-    public String getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
-    }
-
-    public byte getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(byte enabled) {
-        this.enabled = enabled;
-    }
 
     public int getId() {
         return id;

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { User } from 'src/models/User';
+
 
 
 @Component({
@@ -10,7 +12,8 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  private serviceUrl = 'http://localhost:8080/login/access/';
+  private serviceUrl = 'http://localhost:8080/login/access';
+  userLogged: Partial<User> = {};
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,9 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(user: NgForm) {
-    this.httpClient.post(this.serviceUrl, user.value).subscribe({
-      next: (res) => console.log('res'),
+    this.httpClient.post<User>(this.serviceUrl, user.value).subscribe({
+      next: this.userLogged = user.value,
       error: () => console.log('error')
     });
+
+    console.log(this.userLogged);
   } 
 }
