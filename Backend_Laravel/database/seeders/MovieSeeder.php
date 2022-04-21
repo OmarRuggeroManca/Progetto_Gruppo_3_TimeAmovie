@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Author;
+use App\Models\Movie;
 
-class AuthorSeeder extends Seeder
+
+class MovieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,6 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        Author::factory()->times(10)->create();
+        Movie::factory(100)->create();
     }
 }

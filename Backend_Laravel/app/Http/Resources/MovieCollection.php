@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class PetitionCollection extends ResourceCollection
+class MovieCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -16,8 +16,7 @@ class PetitionCollection extends ResourceCollection
     {
         return [
             'data'=>$this->collection,
-            'Author'=> 'Davide Ortu',
-            'version'=>'1.0'
+            'author'=> 'Davide Ortu'
         ];
     }
 }

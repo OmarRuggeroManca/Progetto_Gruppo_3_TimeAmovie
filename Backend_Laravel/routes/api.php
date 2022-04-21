@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PetitionController;
-use App\Http\Controllers\AuthornController;
+use App\Http\Controllers\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,12 @@ use App\Http\Controllers\AuthornController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
 });
+Route::apiResource('/movie',MovieController::class);
 
-Route::apiResource('/petitions', PetitionController::class);
+Route::get('/movie_id/{movie_id}','App\Http\Controllers\MovieController@getRatingByMovieId');
 
-Route::apiResource('/author', AuthornController::class)->only(['index', 'show']);
+Route::get('/user_id/{user_id}','App\Http\Controllers\MovieController@getRatingByUserId');
+
+Route::get('/confront/{movie_id}/{user_id}','App\Http\Controllers\MovieController@getRatingsByUserIdAndMovieId');
