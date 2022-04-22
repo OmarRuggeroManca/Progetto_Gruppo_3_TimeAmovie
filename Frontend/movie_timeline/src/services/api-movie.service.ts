@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ActorData } from 'src/models/ActorData';
 import { ActorInfo } from 'src/models/ActorInfo';
 import { MovieData } from 'src/models/MovieData';
+import { MovieStaff } from 'src/models/MovieStaff';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,15 @@ export class ApiMovieService {
   }
 
   getMovieById(movieId: number | null){
-    return this.httpClient.get<MovieData>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}`);
+    return this.httpClient.get<MovieData>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=it-it`);
   }
   
   getPosterMovie(posterPath: string | null){
     return `https://image.tmdb.org/t/p/original${posterPath}`;
+  }
+
+  getCrewMovie(movieId: number | null){
+    return this.httpClient.get<MovieStaff>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}`);
   }
 
   

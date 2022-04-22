@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ApiMovieService } from '../../services/api-movie.service';
+import { MovieData } from '../../models/MovieData';
+import { MovieStaff } from 'src/models/MovieStaff';
 
 @Component({
   selector: 'app-movie',
@@ -9,16 +12,34 @@ import { NgForm } from '@angular/forms';
 })
 export class MovieComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, 
+              private apiMovieService: ApiMovieService) { }
+
+  movie: Partial<MovieData> = {}  
+  movieStaff: Partial<MovieStaff> = {}
+  movieId:number = 99;    
+  poster: string | null = null      
 
   ngOnInit(): void {
+
+    this.apiMovieService.getMovieById(this.movieId).subscribe(
+    {
+      next: (res) => this.movie = res      
+    });
+
+    this.apiMovieService.getCrewMovie(this.movieId).subscribe(
+    {
+        next: (res) => this.movieStaff = res
+    });
+    
+
+    
+    
+
   }
 
-  createComment(comment: NgForm) {
-    this.httpClient.post(`http://localhost:5167/comments`, comment.value).subscribe({
-      next: () => console.log('comment created'),
-      error: () => console.log('error')
-    });
-  }
+
+
+  
 
 }

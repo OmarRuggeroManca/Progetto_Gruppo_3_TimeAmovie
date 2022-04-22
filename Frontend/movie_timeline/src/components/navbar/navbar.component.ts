@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendAPIService } from 'src/services/backend-api.service';
 
 
 @Component({
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isShown:boolean = false;
-  constructor() { }
+  constructor(public backendAPIService: BackendAPIService) {
 
+   }
+   
   ngOnInit():void {
+    
   }
+
+  
 
 }

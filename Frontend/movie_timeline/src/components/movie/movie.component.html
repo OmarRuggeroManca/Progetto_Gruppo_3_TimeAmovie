@@ -1,25 +1,50 @@
-<form #movieForm="ngForm" (submit)="createComment(movieForm)">
-    <input
-        [ngModel]
-        name="user_id"
-        placeholder="user_id"
-        type="text" 
-    >
+<div class="container">
+    
+    <div class="row ">
+  
+      <div class="col-md-6">
+          <div class="poster_container">
+             <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="70%" height="70%" >  
+          </div>  
+      </div>
+  
+      <div class="col-md-6">
+          <div>
+              <h2>{{movie.title}}</h2>
+          </div>
+          <div>
+              <h3>{{movie.release_date}}</h3>
+          </div>
+          <div>
+            <i  *ngFor="let genres of movie?.genres" >{{genres.name}}&nbsp;&nbsp; </i>
+          </div>
+          <div >
+            <b>Directed by: </b>
+          <!-- <span> *ngFor="let genres of movie?.genres" >{{}}&nbsp;&nbsp;</span> -->
+        </div>
+          <div class="production">
+              <b>Product by: </b>
+            <span  *ngFor="let production_companies of movie?.production_companies" >{{production_companies.name}}&nbsp;&nbsp; </span>
+          </div><hr>
+          <div>
+            <p> {{movie.overview}}</p>
+          </div>
+          <!--<div>
+            <p>Box office: {{movie.revenue}}$</p>
+          </div> -->
+          
 
-    <input
-        [ngModel]
-        name="movie_id"
-        placeholder="movie_id"
+         <div>
+          <button type="button" class="btn btn-primary">Aggiungi ai preferiti </button>
+        </div>
+    
 
-        type="text" 
-    >
+          
 
-    <input
-        [ngModel]
-        name="movie_comment"
-        placeholder="comment"
 
-        type="text" 
-    >
-    <button type="submit">Create Pizza</button>
-  </form>
+          
+  
+        </div>
+  
+    </div>
+  </div>

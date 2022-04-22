@@ -12,6 +12,10 @@ import { MovieFav } from 'src/models/MovieFav';
 export class BackendAPIService {
 
   constructor(private httpClient: HttpClient) { }
+
+  userLogged: boolean = false; 
+
+  idUser: number | null = null;
   
 // Laravel  
 getValutazione(movie_id: number | null){

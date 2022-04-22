@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/models/User';
 import { BackendAPIService } from 'src/services/backend-api.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,9 @@ export class LoginComponent implements OnInit {
 
   login(user: NgForm) {
     this.backendAPIService.postLogin(user.value).subscribe({
-      next: (res) => this.userLogged = res,
+      next: (res) =>{ this.backendAPIService.userLogged = true;         
+      console.log(this.backendAPIService.userLogged);
+      },
       error: () => console.log('error')
     });
   } 

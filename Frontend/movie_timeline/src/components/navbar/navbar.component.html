@@ -9,8 +9,11 @@
   <div class="collapse navbar-collapse justify-content-end " [ngClass]="{ 'show': isShown }"
     id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
-      <li class="nav-item active">
-        <a class="nav-link" (click)="isShown = true" routerLink="/list">I TUOI FILM</a>
+      <li class="nav-item active" *ngIf="!backendAPIService.userLogged">
+        <a class="nav-link" (click)="isShown = true"  routerLink="/login">LOGIN</a>        
+      </li>
+      <li class="nav-item active" *ngIf="backendAPIService.userLogged">
+        <a class="nav-link" (click)="isShown = true"  routerLink="/list">I TUOI FILM</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="isShown = true" routerLink="/timeline">RANDOM</a>
