@@ -10,22 +10,22 @@
           <form #user="ngForm" (submit)="login(user)">
 
             <!-- username input -->
-            <div class="form-outline mb-4">
+            <div div class="form-floating mb-3">
               <input 
               [ngModel]
               name="username"
-              id="form1Example13" class="form-control form-control-lg" />
-              <label class="form-label" for="form1Example13">Username</label>
+              type="username" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Username</label>
             </div>
   
             <!-- Password input -->
-            <div class="form-outline mb-4">
+            <div class="form-floating mb-3">
               <input 
               [ngModel]
               name="password"
-               id="form1Example23" class="form-control form-control-lg" />
-              <label class="form-label" for="form1Example23">Password</label>
-            </div>
+              type="password" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" >
+               <label for="floatingInput">Password</label>
+            </div>          
 
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary btn-lg btn-block">Accedi</button>   
