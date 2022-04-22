@@ -9,7 +9,7 @@ import { MovieData } from 'src/models/MovieData';
 })
 export class ApiMovieService {
 
-  apiKey: String = '1cce2e1670148c77b8d1d5127cbc3d0e';
+  apiKey: String = '1cce2e1670148c77b8d1d5127cbc3d0e';  //Api Key TMDB
   constructor(private httpClient: HttpClient) { }
 
   getActorIdByname(name: string | null, surname: string | null) {
