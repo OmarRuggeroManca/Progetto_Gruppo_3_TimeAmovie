@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { ApiMovieService } from '../../services/api-movie.service';
 import { MovieData } from '../../models/MovieData';
 import { Crew, MovieStaff } from 'src/models/MovieStaff';
-//import { Pipe, PipeTransform } from '@angular/core';
+
 
 @Component({
   selector: 'app-movie',
@@ -14,17 +14,20 @@ import { Crew, MovieStaff } from 'src/models/MovieStaff';
 })
 export class MovieComponent implements OnInit {
 
+
   constructor(private httpClient: HttpClient, 
               private apiMovieService: ApiMovieService) { }
 
   movie: Partial<MovieData> = {}  
   movieStaff: Partial<MovieStaff> = {}
-  movieId:number = 99;    
-  //director:Crew[] = []
+  movieId: number = 99;  
+  directors: Crew[] | undefined = [];  
+  dops: Crew[] | undefined = [];
+  writers: Crew[] | undefined = [];
+  producers: Crew[] | undefined = [];
+  isVisible: boolean = true;
 
-  filtercondition = {job: 'Director'}
-  //@Pipe({name: 'customFilter', pure: false})
-
+  
 
   ngOnInit(): void {
 
@@ -35,10 +38,17 @@ export class MovieComponent implements OnInit {
 
     this.apiMovieService.getCrewMovie(this.movieId).subscribe(
     {
-        next: (res) => this.movieStaff = res
+        next: (res) => {
+          this.movieStaff = res;
+          this.directors = this.movieStaff.crew?.filter(x => x.job === 'Director');
+          this.dops = this.movieStaff.crew?.filter(x => x.job === 'Director of Photography');
+          this.writers = this.movieStaff.crew?.filter(x => x.job === 'Author');
+          this.producers = this.movieStaff.crew?.filter(x => x.job === 'Producer');
+        }
     });
 
-    //this.director = this.movieStaff.crew.filter(x => this.movieStaff.crew.job === 'Director');
+    
+  
 
     
   }

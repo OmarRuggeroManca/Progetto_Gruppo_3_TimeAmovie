@@ -33,3 +33,7 @@ https://timeline.knightlab.com/examples/user-interface/index.html
 
 Salvataggio elementi html in pdf:  
 https://stackoverflow.com/questions/18191893/generate-pdf-from-html-in-div-using-javascript
+
+
+Rating emoticon:
+https://mdbootstrap.com/snippets/jquery/mdbootstrap/771846#html-tab-view

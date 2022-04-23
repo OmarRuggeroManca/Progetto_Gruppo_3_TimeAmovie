@@ -1,53 +1,73 @@
 <div class="container">
-    
-    <div class="row ">
-  
-      <div class="col-md-6">
-          <div class="poster_container">
-             <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="70%" height="70%" >  
-          </div>  
+
+  <div class="row ">
+
+    <div class="col-md-6">
+      <div class="poster_container">
+        <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="70%" height="70%">
       </div>
-  
-      <div class="col-md-6">
-          <div>
-              <h2>{{movie.title}}</h2>
-          </div>
-          <div>
-              <h3>{{movie.release_date}}</h3>
-          </div>
-          <div>
-            <i  *ngFor="let genres of movie?.genres" >{{genres.name}}&nbsp;&nbsp; </i>
-          </div>
-          <div >
-            <b>Directed by: </b>
-          <!-- <span> *ngFor="let genres of movie?.genres" >{{}}&nbsp;&nbsp;</span> -->
-        </div>
-          <div class="production">
-              <b>Product by: </b>
-            <span  *ngFor="let production_companies of movie?.production_companies" >{{production_companies.name}}&nbsp;&nbsp; </span>
-          </div>
-          <div>
-          <div class="director">
-              <b>Directed by: </b>
-              <!-- <span  *ngFor="let crew of movieStaff.crew | customFilter:filtercondition" >{{}} </span> -->
-          </div><hr>
-          <div>  
-            <p> {{movie.overview}}</p>
-          </div>
-          
-          
-
-         <div>
-          <button type="button" class="btn btn-primary">Aggiungi ai preferiti </button>
-        </div>
-    
-
-          
-
-
-          
-  
-        </div>
-  
     </div>
+
+    <div class="col-md-6">
+      <div>
+        <h2>{{movie.title}}</h2>
+      </div>
+      <div>
+        <h3>{{movie.release_date}}</h3>
+      </div>
+
+      <div>
+        <i class="genres" *ngFor="let genres of movie?.genres; last as isLast"> {{genres.name}}<span
+            *ngIf="!isLast">,</span></i>
+      </div>
+
+      <div class="fieldsContainer">
+        <div class="director">
+          <b class="fieldName">Diretto da: </b>
+          <span *ngFor="let director of directors; last as isLast"> {{ director.name}}<span
+              *ngIf="!isLast">,</span></span>
+        </div>
+        <div class="screenwriter">
+          <b class="fieldName">Scritto da: </b>
+          <span *ngFor="let writer of writers; last as isLast"> {{ writer.name}}<span *ngIf="!isLast">,</span></span>
+        </div>
+        <div class="dop">
+          <b class="fieldName">Direzione della fotografia: </b>
+          <span *ngFor="let dop of dops; last as isLast"> {{ dop.name}}<span *ngIf="!isLast">,</span></span>
+        </div>
+        <div class="production">
+          <b class="fieldName">Prodotto da: </b>
+          <span *ngFor="let producer of producers; last as isLast"> {{producer.name}}<span *ngIf="!isLast">,</span>
+          </span>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <div *ngIf="isVisible">
+        <p> {{movie.overview}}</p>
+      </div>
+
+
+      <div>
+        <button (click)="isVisible = !isVisible" *ngIf="isVisible" type="button" class="btn btn-primary">Aggiungi ai
+          preferiti </button>
+      </div>
+
+      
+      <div class="formContainer" *ngIf="!isVisible">
+        
+        
+        <button type="button" class="btn btn-primary">Invia</button>
+
+      </div>
+
+
+
+    </div>
+
   </div>
+</div>
+
+
