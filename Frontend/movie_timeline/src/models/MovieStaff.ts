@@ -19,7 +19,7 @@ export interface MovieStaff {
     order: number;
   }
   
-  interface Crew {
+  export interface Crew {
     adult: boolean;
     gender: number;
     id: number;

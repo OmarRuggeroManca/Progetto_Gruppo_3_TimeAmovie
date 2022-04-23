@@ -25,13 +25,16 @@
           <div class="production">
               <b>Product by: </b>
             <span  *ngFor="let production_companies of movie?.production_companies" >{{production_companies.name}}&nbsp;&nbsp; </span>
-          </div><hr>
+          </div>
           <div>
+          <div class="director">
+              <b>Directed by: </b>
+              <!-- <span  *ngFor="let crew of movieStaff.crew | customFilter:filtercondition" >{{}} </span> -->
+          </div><hr>
+          <div>  
             <p> {{movie.overview}}</p>
           </div>
-          <!--<div>
-            <p>Box office: {{movie.revenue}}$</p>
-          </div> -->
+          
           
 
          <div>

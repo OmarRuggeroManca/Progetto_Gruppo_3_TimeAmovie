@@ -1,9 +1,11 @@
+
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiMovieService } from '../../services/api-movie.service';
 import { MovieData } from '../../models/MovieData';
-import { MovieStaff } from 'src/models/MovieStaff';
+import { Crew, MovieStaff } from 'src/models/MovieStaff';
+//import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-movie',
@@ -18,7 +20,11 @@ export class MovieComponent implements OnInit {
   movie: Partial<MovieData> = {}  
   movieStaff: Partial<MovieStaff> = {}
   movieId:number = 99;    
-  poster: string | null = null      
+  //director:Crew[] = []
+
+  filtercondition = {job: 'Director'}
+  //@Pipe({name: 'customFilter', pure: false})
+
 
   ngOnInit(): void {
 
@@ -31,12 +37,17 @@ export class MovieComponent implements OnInit {
     {
         next: (res) => this.movieStaff = res
     });
-    
+
+    //this.director = this.movieStaff.crew.filter(x => this.movieStaff.crew.job === 'Director');
 
     
-    
-
   }
+
+  
+
+
+  
+  
 
 
 
