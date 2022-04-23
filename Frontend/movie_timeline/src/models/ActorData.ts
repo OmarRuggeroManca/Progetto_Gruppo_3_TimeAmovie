@@ -41,7 +41,7 @@ export interface ActorData {
     job: string;
   }
   
-  interface Cast {
+  export interface Cast {
     overview: string;
     release_date?: string;
     adult: boolean;

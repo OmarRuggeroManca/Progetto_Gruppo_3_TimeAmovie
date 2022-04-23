@@ -18,7 +18,7 @@ export class ApiMovieService {
   }
 
   getMoviesByActorId(actorId: number | null) {
-    return this.httpClient.get<ActorData>(`https://api.themoviedb.org/3/person/${actorId}?api_key=${this.apiKey}&append_to_response=credits`);
+    return this.httpClient.get<ActorData>(`https://api.themoviedb.org/3/person/${actorId}?api_key=${this.apiKey}&append_to_response=credits&language=it-it`);
   }
 
   getMovieById(movieId: number | null){

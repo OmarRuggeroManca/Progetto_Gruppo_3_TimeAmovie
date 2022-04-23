@@ -1,15 +1,22 @@
-.navbar{
- margin: 40px 80px;
+.navbar {
+    margin: 40px 80px;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-size: x-large;
     font-weight: 700;
 }
 
-.nav-link{
+.nav-link {
     font-size: 1.1em;
     font-weight: 700;
-
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255);
+    transition:  ease-in-outwidth .4s cubic-bezier(.2,.7,.5,1);;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #f67c30;
+}
