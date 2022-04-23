@@ -20,7 +20,7 @@ export class MovieComponent implements OnInit {
 
   movie: Partial<MovieData> = {}  
   movieStaff: Partial<MovieStaff> = {}
-  movieId: number = 99;  
+  movieId: number = 309;  
   directors: Crew[] | undefined = [];  
   dops: Crew[] | undefined = [];
   writers: Crew[] | undefined = [];
@@ -42,7 +42,7 @@ export class MovieComponent implements OnInit {
           this.movieStaff = res;
           this.directors = this.movieStaff.crew?.filter(x => x.job === 'Director');
           this.dops = this.movieStaff.crew?.filter(x => x.job === 'Director of Photography');
-          this.writers = this.movieStaff.crew?.filter(x => x.job === 'Author');
+          this.writers = this.movieStaff.crew?.filter(x => (x.job === 'Author') || (x.job ===  'Screenplay') || (x.job ===  'Writer'));
           this.producers = this.movieStaff.crew?.filter(x => x.job === 'Producer');
         }
     });

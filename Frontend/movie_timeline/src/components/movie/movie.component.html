@@ -57,7 +57,23 @@
 
       
       <div class="formContainer" *ngIf="!isVisible">
-        
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Vota!
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" >1</a>
+            <a class="dropdown-item" >2</a>
+            <a class="dropdown-item" >3</a>
+            <a class="dropdown-item" >4</a>
+            <a class="dropdown-item" >5</a>
+          </div>
+        </div><br>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Commenta!</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div><br>
         
         <button type="button" class="btn btn-primary">Invia</button>
 
