@@ -10,16 +10,16 @@
     id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item active" *ngIf="!backendAPIService.userLogged">
-        <a class="nav-link" (click)="isShown = true"  routerLink="/login">LOGIN</a>        
+        <a class="nav-link" id="animation"(click)="isShown = true"  routerLink="/login">LOGIN</a>        
       </li>
       <li class="nav-item active" *ngIf="backendAPIService.userLogged">
-        <a class="nav-link" (click)="isShown = true"  routerLink="/list">I TUOI FILM</a>
+        <a class="nav-link" id="animation" (click)="isShown = true"  routerLink="/list">I TUOI FILM</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="isShown = true" routerLink="/timeline">RANDOM</a>
+        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/timeline">RANDOM</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="isShown = true" routerLink="/">ABOUT</a>
+        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/">ABOUT</a>
       </li>
     </ul>
   </div>

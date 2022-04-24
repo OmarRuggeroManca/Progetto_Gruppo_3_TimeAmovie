@@ -1,14 +1,13 @@
 .container{
-    height: 650px;
-    margin: 150px 200px;
+    width: 1920px;
+    margin: 250px;
 }
 
 .title{
     font-weight: 900;
     color: #FFFFFF;
-    font-size: clamp(3rem, -0.2500rem + 14.6667vw, 8.5rem);
-    float: left;
-    line-height: clamp(3rem, -0.2500rem + 14.6667vw, 8.5rem);;
+    font-size: 10rem;
+    line-height: 9rem;
 }
 
 .desc{
@@ -16,6 +15,7 @@
     color: #FFFFFF;
     font-size: 1.4em;
 }
+
 
 // @media only screen and (max-width: 760px){
 //     .title{

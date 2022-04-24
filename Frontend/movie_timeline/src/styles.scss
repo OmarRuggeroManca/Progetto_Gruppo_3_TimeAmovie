@@ -2,10 +2,60 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400;700;900&display=swap');
 
 
+
 body {
     margin : 20px;
     background-color: #0E0E10;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
+
+#primary-button{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 20px;
+    background: #FFF;
+    display: inline-block; 
+    line-height: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    color: #0E0E10;
+    border: 2px solid #e13822;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  #primary-button:hover{
+    color: #0E0E10;
+    background: #FFF;
+    transition: box-shadow 300ms;
+    box-shadow: 4px 4px #e13822; 
+  }
+
+#secondary-button{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: none;
+    display: inline-block; 
+    line-height: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    color: #FFF;
+    border: 2px solid #e13822;
+    border-radius: 5px;
+    position: relative;
+    transition: box-shadow 300ms;
+  }
+
+  #secondary-button:hover{
+    color: #0E0E10;
+    background: #FFF;
+    transition: background-color ease-in-out linear;
+    box-shadow: 3px 3px #e13822; 
+  }

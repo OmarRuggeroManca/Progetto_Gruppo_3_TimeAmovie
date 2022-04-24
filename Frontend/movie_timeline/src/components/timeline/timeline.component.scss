@@ -4,18 +4,17 @@ h1 {
 }
 
 .timeline {
-    border-left: 3px solid #f67c30;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
+    border: 8px solid #e13822; 
+    border-radius: 6px;
     margin: 0 auto;
     letter-spacing: 0.2px;
     position: relative;
     line-height: 1.4em;
     font-size: 1.03em;
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
     list-style: none;
     text-align: left;
-    max-width: 60%;
+    max-width: 70%;
 }
 
 
@@ -36,7 +35,6 @@ h1 {
     color: #FFFFFF;
     font-weight: 700;
     font-size: 1.1rem;
-    margin-bottom: 10px;
 }
 
 .timeline p{
@@ -44,10 +42,13 @@ h1 {
 }
 
 .timeline .event {
-    border-bottom: 1px dashed #f67c30;
-    padding-bottom: 25px;
-    margin-bottom: 25px;
+    padding: 16px;
+    border: 2px solid #e13822;
+    border-radius: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
     position: relative;
+    transition: box-shadow 300ms;
 }
 
 .timeline a {
@@ -55,9 +56,21 @@ h1 {
     text-decoration: none;
 }
 
-.timeline a:hover{
-    color:#f67c30;
+.timeline .event:hover {
+    box-shadow: 4px 4px #e13822; 
+    background-color: #FFF;
+    cursor: pointer;   
 }
+
+
+.timeline .event:hover .event:after{
+ background: #FFF;
+}
+
+.timeline .event:hover a{
+    color: #0E0E10; 
+}
+
 
 @media (max-width: 767px) {
     .timeline .event {
@@ -67,8 +80,8 @@ h1 {
 
 .timeline .event:last-of-type {
     padding-bottom: 0;
-    margin-bottom: 0;
-    border: none;
+    margin-bottom: 20px;
+
 }
 
 .timeline .event:before,
@@ -79,37 +92,53 @@ h1 {
 }
 
 .timeline .event:before {
+    border: 2px solid #e13822;
+    padding: 4px;
+    border-radius: 5px;
     left: -207px;
     color: #FFFFFF;
     content:attr(value);
     text-align: right;
     font-weight: 600;
     font-size: 1.1em;
-    min-width: 120px;
+    min-width: 110px;
+    transition: box-shadow 300ms;
+}
+.timeline .event:hover::before {
+    color: #0E0E10;
+    background: #FFF;
+    box-shadow: 3px 3px #e13822; 
+    
 }
 
 @media (max-width: 767px) {
     .timeline .event:before {
-        left: 0px;
+        left: 10px;
+        padding: 5px;
         text-align: left;
     }
 }
 
 .timeline .event:after {
-    -webkit-box-shadow: 0 0 0 5px #f67c30;
-    box-shadow: 0 0 0 3px #f67c30;
-    left: -55.8px;
-    background: #fff;
-    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 5px #e13822;
+    box-shadow: 0 0 0 4px #e13822;
+    left: -60.5px;
+    background: #0E0E10;
+    border-radius: 5%;
     height: 9px;
     width: 9px;
     content: "";
     top: 5px;
 }
 
+.timeline .event:hover::after{
+    background: #ffffff;
+}
+
+
 @media (max-width: 767px) {
     .timeline .event:after {
-        left: -31.8px;
+        left: -35.8px;
     }
 }
 
@@ -120,7 +149,7 @@ h1 {
     border-top-right-radius: 0;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
-    border-right: 3px solid #727cf5;
+    border-right: 3px solid #e13822;
 }
 
 .rtl .timeline .event::before {
