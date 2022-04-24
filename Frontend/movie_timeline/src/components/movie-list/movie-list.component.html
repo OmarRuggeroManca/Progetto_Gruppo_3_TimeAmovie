@@ -3,21 +3,31 @@
     <movie-list-item [movie]="movie" (titleClick)="onTitleClick($event)"></movie-list-item>
 </div> -->
 <div class="container">
-    <div class="input-group rounded" style="width: 330px;">
-        <input type="search" class="form-control rounded  " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
-            <fa-icon class="iconSearch" [icon]="searchIcon"></fa-icon>
-        </span>
-      </div>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    <app-movie-list-item></app-movie-list-item>
-    
-</div>
+    <div class="row">
+        <h2 class="user">Ciao {{user}}, ecco la lista dei tuoi film preferiti:</h2>
+        <div class="col-md-4">
+            <div class="input-group rounded" style="width: 330px;">
+                <input type="search" class="form-control rounded  " placeholder="Cerca nella lista" aria-label="Search"
+                    aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <fa-icon class="iconSearch" [icon]="searchIcon"></fa-icon>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+            <app-movie-list-item></app-movie-list-item>
+        </div>
+    </div>
+    <div class="container">
+
+
+    </div>

@@ -2,17 +2,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h1 class="card-title" style="color: rgb(255, 255, 255);">{{ actorData.name?.toUpperCase() }}</h1>
             <img src="https://image.tmdb.org/t/p/original{{actorData.profile_path}}" width="70%" >
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="card-body">
                 <div id="content">
                     <ul class="timeline">
                         <li *ngFor="let actorMovie of orderedMovies" class="event"
                             attr.value={{actorMovie.release_date?.substring(0,4)}} (click)="onTitleClick(actorMovie.id)">
-                            <h3><a  >{{ actorMovie.title.toUpperCase() }}</a></h3>
+                            <h3><a  >{{ actorMovie.title }}</a></h3>
+                            <p>{{ actorMovie.overview }}</p>
                         </li>
                     </ul>
                 </div>

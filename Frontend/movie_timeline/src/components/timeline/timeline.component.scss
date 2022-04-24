@@ -4,14 +4,14 @@ h1 {
 }
 
 .timeline {
-    border: 8px solid #e13822; 
-    border-radius: 6px;
+    border-left: 8px solid #e13822; 
+    border-radius: px;
     margin: 0 auto;
     letter-spacing: 0.2px;
     position: relative;
     line-height: 1.4em;
     font-size: 1.03em;
-    padding: 50px 50px 0px 50px;
+    padding: 50px 50px 0px 30px;
     list-style: none;
     text-align: left;
     max-width: 70%;
@@ -42,10 +42,9 @@ h1 {
 }
 
 .timeline .event {
-    padding: 16px;
-    border: 2px solid #e13822;
+    padding: 12px 16px 0px 15px;
+    border: 3px solid #e13822;
     border-radius: 5px;
-    padding-bottom: 0px;
     margin-bottom: 15px;
     position: relative;
     transition: box-shadow 300ms;
@@ -62,7 +61,6 @@ h1 {
     cursor: pointer;   
 }
 
-
 .timeline .event:hover .event:after{
  background: #FFF;
 }
@@ -71,6 +69,9 @@ h1 {
     color: #0E0E10; 
 }
 
+.timeline .event:hover p{
+    color: #0E0E10; 
+}
 
 @media (max-width: 767px) {
     .timeline .event {
@@ -92,16 +93,16 @@ h1 {
 }
 
 .timeline .event:before {
-    border: 2px solid #e13822;
-    padding: 4px;
+    border: 3px solid #e13822;
+    padding: 8px 8px 6px 8px;
     border-radius: 5px;
-    left: -207px;
+    left: -163px;
     color: #FFFFFF;
     content:attr(value);
     text-align: right;
     font-weight: 600;
     font-size: 1.1em;
-    min-width: 110px;
+    min-width: 90px;
     transition: box-shadow 300ms;
 }
 .timeline .event:hover::before {
@@ -116,15 +117,21 @@ h1 {
         left: 10px;
         padding: 5px;
         text-align: left;
+        border: none;
+    }
+
+    .timeline .event:hover::before {
+        box-shadow: none;
+        
     }
 }
 
 .timeline .event:after {
-    -webkit-box-shadow: 0 0 0 5px #e13822;
+    -webkit-box-shadow: 0 0 0 8px #e13822;
     box-shadow: 0 0 0 4px #e13822;
-    left: -60.5px;
+    left: -41.5px;
     background: #0E0E10;
-    border-radius: 5%;
+    border-radius: 10%;
     height: 9px;
     width: 9px;
     content: "";
@@ -138,7 +145,8 @@ h1 {
 
 @media (max-width: 767px) {
     .timeline .event:after {
-        left: -35.8px;
+        left: -37.8px;
+       
     }
 }
 

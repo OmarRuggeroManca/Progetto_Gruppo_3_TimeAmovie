@@ -2,7 +2,7 @@
 
   <div class="row ">
 
-    <div class="col-md-6">
+    <div class="col-md-6" id="poster">
       <div class="poster_container">
         <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="70%" height="70%">
       </div>
@@ -51,7 +51,7 @@
 
 
       <div>
-        <button id="secondary-button" (click)="isVisible = !isVisible" *ngIf="isVisible" type="button">Aggiungi ai
+        <button id="primary-button" (click)="isVisible = !isVisible" *ngIf="isVisible" type="button">Aggiungi ai
           preferiti </button>
       </div>
 
@@ -71,11 +71,12 @@
         </div><br>
 
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Commenta!</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label for="exampleFormControlTextarea1"></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserisci un commento"></textarea>
         </div><br>
         
         <button id="primary-button" type="button">Invia</button>
+        <button id="secondary-button" type="button" (click)="isVisible = !isVisible">Torna alla trama</button>
 
       </div>
 
