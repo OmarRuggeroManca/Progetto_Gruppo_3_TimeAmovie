@@ -3,6 +3,9 @@ import { ApiMovieService } from '../../services/api-movie.service';
 import { MovieData } from '../../models/MovieData';
 import { Crew, MovieStaff } from 'src/models/MovieStaff';
 import { ActivatedRoute } from '@angular/router';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { BackendAPIService } from 'src/services/backend-api.service';
+import { MovieFav } from 'src/models/MovieFav';
 
 
 @Component({
@@ -20,17 +23,22 @@ export class MovieComponent implements OnInit {
   writers: Crew[] | undefined = [];
   producers: Crew[] | undefined = [];
   isVisible: boolean = true;
+  movieList: MovieFav[] = [];
+  isFavorite: boolean = false;
+  starIcon = faStar;
+
 
   constructor(
     private apiMovieService: ApiMovieService,
-    activatedRoute: ActivatedRoute) {
+    activatedRoute: ActivatedRoute,
+    public backendAPIService: BackendAPIService) {
       activatedRoute.params.subscribe(val => {
         this.movieId = val['movieId'];
       });
     }
  
-
   ngOnInit(): void {
+    this.checkFavMovie(this.movieId);
     this.getMovie();
   }
 
@@ -53,7 +61,28 @@ export class MovieComponent implements OnInit {
     }
 
 
-  
+    checkFavMovie(movieId: number | null){
+
+        this.backendAPIService.getListaPreferiti().subscribe({
+          next: (res) => {
+            this.movieList = res;
+            console.log(this.movieList);
+            console.log(movieId);
+            for (let i=0; i<this.movieList.length; i++){
+              if (this.movieList[i].movie_id != movieId){
+                this.isFavorite = false;
+              }
+              else{
+                this.isFavorite = true;
+                break;
+              }
+              console.log(this.isFavorite);
+            }
+          } 
+        })
+
+        
+    }
   
 
 

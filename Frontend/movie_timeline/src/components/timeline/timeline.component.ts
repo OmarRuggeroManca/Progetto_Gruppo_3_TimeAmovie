@@ -17,7 +17,7 @@ export class TimelineComponent implements OnInit {
 
   actorData: Partial<ActorData> = {};
   orderedMovies: Cast[] | undefined = [];
-  actorId: number | null = 1;
+  actorId: number | null = 500;
 
   constructor(private apiMovieService: ApiMovieService,
     private router: Router) {

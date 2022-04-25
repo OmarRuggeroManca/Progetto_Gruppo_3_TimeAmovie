@@ -60,7 +60,7 @@ export const deleteFavouriteMovie = async (req, res) => {
     try {
         await FilmPreferito.destroy({
             where: {
-                id: req.params.id
+                movie_id: req.params.id
             }
         });
         res.json({

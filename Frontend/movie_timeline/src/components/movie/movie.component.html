@@ -10,6 +10,7 @@
 
     <div class="col-md-6">
       <div>
+        <fa-icon class="iconStar" [icon]="starIcon" size="lg" *ngIf="isFavorite"></fa-icon>
         <h2>{{movie.title}}</h2>
       </div>
       <div>
@@ -51,9 +52,11 @@
 
 
       <div>
-        <button id="primary-button" (click)="isVisible = !isVisible" *ngIf="isVisible" type="button">Aggiungi ai
+        <button id="primary-button" (click)="isVisible = !isVisible" *ngIf="isVisible && !isFavorite" type="button">Aggiungi ai
           preferiti </button>
       </div>
+
+      
 
       
       <div class="formContainer" *ngIf="!isVisible">

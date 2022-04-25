@@ -17,8 +17,11 @@ export class MovieListComponent implements OnInit {
   user: string = "Nicolas Cage"
   movieIdList: MovieFav[] = [];
   movieList: MovieData[] = [];
+  filteredMovieList: MovieData[] = [];
   searchIcon = faSearch;
   trashIcon = faTrashAlt;
+
+  filter: string = '';
 
   constructor(
     private apiMovieService: ApiMovieService,
@@ -34,11 +37,10 @@ export class MovieListComponent implements OnInit {
     this.backendAPIService.getListaPreferiti().subscribe({
       next: (res) => {
         this.movieIdList = res;
-        console.log(this.movieIdList);
         for (let i = 0; i < this.movieIdList.length; i++) {
           let id = this.movieIdList[i].movie_id;
           this.apiMovieService.getMovieById(id).subscribe({
-            next: (val) => this.movieList[i] = val
+            next: (val) => this.movieList[i] = this.filteredMovieList[i] = val
           })
         }
       }
@@ -49,7 +51,18 @@ export class MovieListComponent implements OnInit {
     this.router.navigateByUrl(`/movie/${event}`)
   }
 
-  log(){
-    console.log('click');
+  deleteFavMovie(event: number){
+    this.backendAPIService.deleteFilmPreferito(event).subscribe({
+      next: (res) => {
+        this.filteredMovieList = [];
+        this.getList();
+      }
+    })
   }
+
+  applyFilter(event: String){
+    this.filteredMovieList = this.movieList.filter(x => x.title.toLowerCase().includes(`${event.toLowerCase()}`))
+  }
+
+
 }
