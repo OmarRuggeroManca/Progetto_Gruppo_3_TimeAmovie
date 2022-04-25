@@ -14,7 +14,7 @@ import { MovieData } from 'src/models/MovieData';
 })
 export class MovieListComponent implements OnInit {
 
-  user: string = "Nicolas Cage"
+  user: string = this.backendAPIService.userActive.username;
   movieIdList: MovieFav[] = [];
   movieList: MovieData[] = [];
   filteredMovieList: MovieData[] = [];

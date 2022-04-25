@@ -14,8 +14,7 @@ export class BackendAPIService {
   constructor(private httpClient: HttpClient) { }
 
   userLogged: boolean = false; 
-
-  idUser: number | null = null;
+  userActive: User = {} as User;
   
 // Laravel  
 getValutazione(movie_id: number | null){

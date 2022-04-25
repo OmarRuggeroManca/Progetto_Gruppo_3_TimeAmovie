@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "PZE1qvzgi1dJc8G3F/TwnP9xOh2PEbt6H7tsFPfRIWo=",
+  "Source": "CommentsApp.RestAPI",
+  "BasePath": "_content/CommentsApp.RestAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

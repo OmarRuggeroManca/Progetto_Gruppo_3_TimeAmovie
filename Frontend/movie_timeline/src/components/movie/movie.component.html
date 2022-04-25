@@ -52,42 +52,46 @@
 
 
       <div>
-        <button id="primary-button" (click)="isVisible = !isVisible" *ngIf="isVisible && !isFavorite" type="button">Aggiungi ai
+        <button id="primary-button" (click)="isVisible = !isVisible" *ngIf="isVisible && !isFavorite"
+          type="button">Aggiungi ai
           preferiti </button>
       </div>
 
-      
 
-      
+
+
       <div class="formContainer" *ngIf="!isVisible">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Vota!
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" >1</a>
-            <a class="dropdown-item" >2</a>
-            <a class="dropdown-item" >3</a>
-            <a class="dropdown-item" >4</a>
-            <a class="dropdown-item" >5</a>
-          </div>
-        </div><br>
 
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Inserisci un commento"></textarea>
-        </div><br>
-        
-        <button id="primary-button" type="button">Invia</button>
-        <button id="secondary-button" type="button" (click)="isVisible = !isVisible">Torna alla trama</button>
+        <form #movie="ngForm" (submit)="addFavoriteMovie(movie)">
+          <div class="form-group row">
+            <div class="col-8">
+              <select [ngModel] name="movie_rating" id="select" name="select" class="custom-select" required="required">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4"></label>
+            <div class="col-8">
+              <textarea [ngModel] name="movie_comment" id="movie_comment" name="movie_comment" cols="40" rows="4"
+                class="form-control" required="required"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-4 col-8">
+              <button type="submit" id="primary-button">Invia</button>
+              <button id="secondary-button" type="button" (click)="isVisible = !isVisible">Torna alla trama</button>
+            </div>
+          </div>
+        </form>
 
       </div>
-
-
 
     </div>
 
   </div>
 </div>
-
-

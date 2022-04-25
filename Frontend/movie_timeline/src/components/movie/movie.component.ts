@@ -6,7 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { BackendAPIService } from 'src/services/backend-api.service';
 import { MovieFav } from 'src/models/MovieFav';
-
+import { NgForm } from '@angular/forms';
+import { MovieRating } from 'src/models/MovieRating';
 
 @Component({
   selector: 'app-movie',
@@ -15,10 +16,10 @@ import { MovieFav } from 'src/models/MovieFav';
 })
 export class MovieComponent implements OnInit {
 
-  movie: Partial<MovieData> = {}  
-  movieStaff: Partial<MovieStaff> = {}
-  movieId: number | null = null;  
-  directors: Crew[] | undefined = [];  
+  movieId: number | null = null;
+  movie: Partial<MovieData> = {};
+  movieStaff: Partial<MovieStaff> = {};
+  directors: Crew[] | undefined = [];
   dops: Crew[] | undefined = [];
   writers: Crew[] | undefined = [];
   producers: Crew[] | undefined = [];
@@ -27,66 +28,73 @@ export class MovieComponent implements OnInit {
   isFavorite: boolean = false;
   starIcon = faStar;
 
+  movieRating: MovieRating = {} as MovieRating;
 
   constructor(
     private apiMovieService: ApiMovieService,
     activatedRoute: ActivatedRoute,
     public backendAPIService: BackendAPIService) {
-      activatedRoute.params.subscribe(val => {
-        this.movieId = val['movieId'];
-      });
-    }
- 
+    activatedRoute.params.subscribe(val => {
+      this.movieId = val['movieId'];
+    });
+  }
+
   ngOnInit(): void {
     this.checkFavMovie(this.movieId);
     this.getMovie();
   }
 
-   getMovie(){
+  getMovie() {
     this.apiMovieService.getMovieById(this.movieId).subscribe(
       {
-        next: (res) => this.movie = res      
+        next: (res) => this.movie = res
       });
-  
-      this.apiMovieService.getCrewMovie(this.movieId).subscribe(
+
+    this.apiMovieService.getCrewMovie(this.movieId).subscribe(
       {
-          next: (res) => {
-            this.movieStaff = res;
-            this.directors = this.movieStaff.crew?.filter(x => x.job === 'Director');
-            this.dops = this.movieStaff.crew?.filter(x => x.job === 'Director of Photography');
-            this.writers = this.movieStaff.crew?.filter(x => (x.job === 'Author') || (x.job ===  'Screenplay') || (x.job ===  'Writer'));
-            this.producers = this.movieStaff.crew?.filter(x => x.job === 'Producer');
-          }
+        next: (res) => {
+          this.movieStaff = res;
+          this.directors = this.movieStaff.crew?.filter(x => x.job === 'Director');
+          this.dops = this.movieStaff.crew?.filter(x => x.job === 'Director of Photography');
+          this.writers = this.movieStaff.crew?.filter(x => (x.job === 'Author') || (x.job === 'Screenplay') || (x.job === 'Writer'));
+          this.producers = this.movieStaff.crew?.filter(x => x.job === 'Producer');
+        }
       });
-    }
+  }
 
 
-    checkFavMovie(movieId: number | null){
-
-        this.backendAPIService.getListaPreferiti().subscribe({
-          next: (res) => {
-            this.movieList = res;
-            console.log(this.movieList);
-            console.log(movieId);
-            for (let i=0; i<this.movieList.length; i++){
-              if (this.movieList[i].movie_id != movieId){
-                this.isFavorite = false;
-              }
-              else{
-                this.isFavorite = true;
-                break;
-              }
-              console.log(this.isFavorite);
+  checkFavMovie(movieId: number | null) {
+    if (this.backendAPIService.userLogged) {
+      this.backendAPIService.getListaPreferiti().subscribe({
+        next: (res) => {
+          this.movieList = res;
+          for (let i = 0; i < this.movieList.length; i++) {
+            if (this.movieList[i].movie_id != movieId) {
+              this.isFavorite = false;
             }
-          } 
-        })
-
-        
+            else {
+              this.isFavorite = true;
+              break;
+            }
+          }
+        }
+      })
     }
-  
+  }
+
+  addFavoriteMovie(movie: NgForm) {
+    console.log("non funziona!");
+    // this.movieToAdd = movie.value;
+
+    // this.movieRating = {
+    // movie_id = this.movieId,
+    // movie_rating = this.movieToAdd,
+    // user_id = this.backendAPIService.userActive.id
+    // }
+  }
 
 
 
-  
+
 
 }
