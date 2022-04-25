@@ -15,16 +15,13 @@
             </div>
         </div>
         <div class="col-md-8">
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
-            <app-movie-list-item></app-movie-list-item>
+            <div class="movieItem" *ngFor="let movie of movieList">
+                <h2 class="title" (click)="onMovieClick(movie.id)">{{movie.title}}</h2>
+                <p class="overview"> Lorem ipsum dolor sit amet, consectetuer
+                    adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <fa-icon class="iconTrash" [icon]="trashIcon" size="lg" (click)="log()"></fa-icon>
+            </div>
         </div>
     </div>
     <div class="container">

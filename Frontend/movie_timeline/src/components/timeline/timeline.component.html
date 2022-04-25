@@ -6,12 +6,12 @@
             <img src="https://image.tmdb.org/t/p/original{{actorData.profile_path}}" width="70%" >
            
         </div>
-         <div class="col-md-12">
+         <div class="col-md-8">
             <div class="card-body">
                 <div id="content">
                     <ul class="timeline">
                         <li *ngFor="let actorMovie of orderedMovies" class="event"
-                            attr.value={{actorMovie.release_date?.substring(0,4)}} (click)="onTitleClick(actorMovie.id)">
+                            attr.value={{actorMovie.release_date?.substring(0,4)}} (click)="onMovieClick(actorMovie.id)">
                             <h3><a  >{{ actorMovie.title }}</a></h3>
                             <p>{{ actorMovie.overview }}</p>
                         </li>

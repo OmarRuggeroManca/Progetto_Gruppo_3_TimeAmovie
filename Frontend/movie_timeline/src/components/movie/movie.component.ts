@@ -28,10 +28,7 @@ export class MovieComponent implements OnInit {
         this.movieId = val['movieId'];
       });
     }
-
-  
-
-  
+ 
 
   ngOnInit(): void {
     this.getMovie();

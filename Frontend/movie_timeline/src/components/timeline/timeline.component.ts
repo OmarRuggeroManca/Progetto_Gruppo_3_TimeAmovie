@@ -33,9 +33,7 @@ export class TimelineComponent implements OnInit {
           pdf.save("PDFando.pdf");
         }      
       });
-    }
-
-    
+    }  
       
 
   ngOnInit(): void {
@@ -63,7 +61,7 @@ export class TimelineComponent implements OnInit {
     })
   }
 
-  onTitleClick(event: number) {
+  onMovieClick(event: number) {
     this.router.navigateByUrl(`/movie/${event}`)
   }
 

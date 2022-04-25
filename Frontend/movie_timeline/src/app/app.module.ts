@@ -10,7 +10,6 @@ import { MovieComponent } from '../components/movie/movie.component';
 import { TimelineComponent } from '../components/timeline/timeline.component';
 import { HomeComponent } from '../components/home/home.component';
 import { MovieListComponent } from '../components/movie-list/movie-list.component';
-import { MovieListItemComponent } from '../components/movie-list-item/movie-list-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -22,8 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MovieComponent,
     TimelineComponent,
     HomeComponent,
-    MovieListComponent,
-    MovieListItemComponent
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
