@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
+
+import jsPDF from 'jspdf';
+
+
+
 
 @Component({
   selector: 'app-timeline',
@@ -12,12 +17,26 @@ export class TimelineComponent implements OnInit {
 
   actorData: Partial<ActorData> = {};
   orderedMovies: Cast[] | undefined = [];
-  actorId: number | null = 2963;
+  actorId: number | null = 1;
 
   constructor(private apiMovieService: ApiMovieService,
-    private router: Router) { 
+    private router: Router) {
+    }
     
-  }
+
+    @ViewChild('timelinepdf', {static: false}) el!: ElementRef;    
+
+    makePDF(){
+      let pdf = new jsPDF('p', 'pt', 'a3');      
+      pdf.html(this.el.nativeElement,{
+        callback: (pdf)=> {
+          pdf.save("PDFando.pdf");
+        }      
+      });
+    }
+
+    
+      
 
   ngOnInit(): void {
     this.getTimeline();
