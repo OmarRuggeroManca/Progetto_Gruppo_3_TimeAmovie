@@ -37,3 +37,7 @@ https://stackoverflow.com/questions/18191893/generate-pdf-from-html-in-div-using
 
 Rating emoticon:
 https://mdbootstrap.com/snippets/jquery/mdbootstrap/771846#html-tab-view
+
+
+libreria per il saklvataggio pdf
+jsPDF --> npm install jspdf --save
