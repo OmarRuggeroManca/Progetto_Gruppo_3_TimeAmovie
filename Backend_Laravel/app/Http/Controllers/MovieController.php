@@ -8,6 +8,7 @@ use App\Http\Resources\MovieCollection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\MovieResource;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -133,12 +134,37 @@ class MovieController extends Controller
 
     }
 
-    public function getRatingsByUserIdAndMovieId( $movie_id,$user_id){
+    public function getRatingsByUserIdAndMovieId( $movie_id, $user_id){
     
         return response()->json([//DA MIGLIORARE
             'Ratings'=>new MovieCollection( Movie::where('movie_id','LIKE',$movie_id)->where('user_id','LIKE',$user_id)->get()),
             'Response Status'=>Response::HTTP_OK
         ]);
 
-    }
+    }       
+
+
+    public function deleteRatingsByUserIdAndMovieId( $movie_id, $user_id){
+    
+
+        $movie = Movie::where('movie_id','LIKE',$movie_id)->where('user_id','LIKE',$user_id)->get();  //non funziona
+        //$movie = Movie::find($movie_id);  //questa funziona
+        $movie->delete();  //scazza roba
+        return response()->json([
+            new MovieResource($movie),  //solo per vedere se funzionano le chiamate a monte
+            'Response Status'=>Response::HTTP_NO_CONTENT
+        ]);
+        
+
+        //versione prova con metodi DB
+        /*DB::delete('delete from movies where movie_id = ?',[$movie_id] && 'where user_id =',[$user_id]);  //da problemi
+        return response()->json([            
+            'Response Status'=>Response::HTTP_OK
+        ]);*/
+    }    
+
+    
+
+
+    
 }

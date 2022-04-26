@@ -26,3 +26,5 @@ Route::get('/movie_id/{movie_id}','App\Http\Controllers\MovieController@getRatin
 Route::get('/user_id/{user_id}','App\Http\Controllers\MovieController@getRatingByUserId');
 
 Route::get('/confront/{movie_id}/{user_id}','App\Http\Controllers\MovieController@getRatingsByUserIdAndMovieId');
+
+Route::delete('/delete/{movie_id}/{user_id}','App\Http\Controllers\MovieController@deleteRatingsByUserIdAndMovieId');
