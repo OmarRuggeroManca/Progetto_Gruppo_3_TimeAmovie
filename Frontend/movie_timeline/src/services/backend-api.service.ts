@@ -23,6 +23,9 @@ getValutazione(movie_id: number | null){
 postValutazione(movieRating: MovieRating | null){
   return this.httpClient.post<MovieRating>(`http://localhost:8000/api/movie`, movieRating);
 }
+// deleteValutazione(movie_id: number | null){
+//   return this.httpClient.delete<MovieRating>(`http://localhost:8000/api/movie_id/${movie_id}`);
+// }
 
 // .NET
 getCommento(movie_id: number | null){
@@ -31,6 +34,9 @@ getCommento(movie_id: number | null){
 postCommento(movieComment: MovieComment){
   return this.httpClient.post<MovieComment>(`http://localhost:5167/comments/`, movieComment);
 }
+// deleteCommento(movie_id: number | null){
+//   return this.httpClient.delete<MovieComment>(`http://localhost:5167/comments/${movie_id}`)
+// }
 
 // Node.js
 getFilmPreferito(movie_id: number | null){

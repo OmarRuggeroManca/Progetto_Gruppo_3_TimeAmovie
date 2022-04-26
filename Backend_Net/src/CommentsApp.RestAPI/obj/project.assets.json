@@ -1106,19 +1106,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ciao\\.nuget\\packages\\": {}
+    "C:\\Users\\utente\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.RestAPI\\CommentsApp.RestAPI.csproj",
+      "projectUniqueName": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.RestAPI\\CommentsApp.RestAPI.csproj",
       "projectName": "CommentsApp.RestAPI",
-      "projectPath": "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.RestAPI\\CommentsApp.RestAPI.csproj",
-      "packagesPath": "C:\\Users\\Ciao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.RestAPI\\obj\\",
+      "projectPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.RestAPI\\CommentsApp.RestAPI.csproj",
+      "packagesPath": "C:\\Users\\utente\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.RestAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ciao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\utente\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1132,11 +1132,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj": {
-              "projectPath": "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj"
+            "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj": {
+              "projectPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj"
             },
-            "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj": {
-              "projectPath": "C:\\Users\\Ciao\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj"
+            "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj": {
+              "projectPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj"
             }
           }
         }
@@ -1178,7 +1178,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

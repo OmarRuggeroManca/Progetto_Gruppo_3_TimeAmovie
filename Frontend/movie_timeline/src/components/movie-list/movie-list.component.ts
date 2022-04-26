@@ -54,6 +54,7 @@ export class MovieListComponent implements OnInit {
   deleteFavMovie(event: number){
     this.backendAPIService.deleteFilmPreferito(event).subscribe({
       next: (res) => {
+        //IMPLEMENTARE DELETE RATING E COMMENTO
         this.filteredMovieList = [];
         this.getList();
       }

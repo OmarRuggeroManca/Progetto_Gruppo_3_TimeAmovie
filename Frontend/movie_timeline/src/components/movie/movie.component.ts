@@ -29,9 +29,9 @@ export class MovieComponent implements OnInit {
   isFavorite: boolean = false;
   starIcon = faStar;
 
-  movieRating: MovieRating = {} as MovieRating;  
+  movieRating: MovieRating = {} as MovieRating;
   movieComment: MovieComment = {} as MovieComment;
-  movieFav:MovieFav  = {} as MovieFav
+  movieFav: MovieFav = {} as MovieFav
 
 
   constructor(
@@ -88,38 +88,38 @@ export class MovieComponent implements OnInit {
 
 
 
-  
-
-  addFavoriteMovie(movie: NgForm) {    
 
 
-    //Dichiarazione variabili
-     this.movieRating = {
-     movie_id : this.movieId,
-     movie_rating : movie.value.movie_rating,
-     user_id : this.backendAPIService.userActive.id
-     }
-     this.movieComment = {
-      movie_id : this.movieId,
-      movie_comment : movie.value.movie_comment,
-      user_id : this.backendAPIService.userActive.id
-      }
-      this.movieFav = {
-        movie_id : this.movieId
-      }
+  addFavoriteMovie(movie: NgForm) {
 
+    this.movieRating = {
+      movie_id: this.movieId,
+      movie_rating: movie.value.movie_rating,
+      user_id: this.backendAPIService.userActive.id
+    }
+    this.movieComment = {
+      movie_id: this.movieId,
+      movie_comment: movie.value.movie_comment,
+      user_id: this.backendAPIService.userActive.id
+    }
+    this.movieFav = {
+      movie_id: this.movieId
+    }
 
-      //Querys
-      this.backendAPIService.postValutazione(this.movieRating).subscribe({
-       next: (res)=> {console.log("Valotazione aggiunta");  },  /* this.backendAPIService.postCommento(this.movieComment).subscribe({
-        next: (res2)=>{console.log("commento aggiunto"); this.backendAPIService.postFilmPreferito(this.movieFav).subscribe({
-          next: (res3)=>{console.log("Film aggiunto")},
-          error: () => console.log('Errore node')
-        })},
-        error: () => console.log('Errore .NET')
-       })},*/
-       error: () => console.log('Errore laravel')       
-      });      
+    this.backendAPIService.postValutazione(this.movieRating).subscribe({
+      next: (res) => {
+        console.log("Valutazione aggiunta"); this.backendAPIService.postCommento(this.movieComment).subscribe({
+          next: (res2) => {
+            console.log("commento aggiunto"); this.backendAPIService.postFilmPreferito(this.movieFav).subscribe({
+              next: (res3) => { console.log("Film aggiunto") },
+              error: () => console.log('Errore node')
+            })
+          },
+          error: () => console.log('Errore .NET')
+        })
+      },
+      error: () => console.log('Errore laravel')
+    });
   }
 
 
