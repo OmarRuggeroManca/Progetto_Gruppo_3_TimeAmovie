@@ -39,9 +39,9 @@ class MovieController extends Controller
             ]
         ),
             [
-                'movie_id' =>'required|integer|between:1,100',
+                'movie_id' =>'required|integer|between:1,1000000',
                 'movie_rating' =>'required|integer|between:1,5',
-                'user_id' =>'required|integer|between:1,10000'
+                'user_id' =>'required|integer|between:1,1000000'
             ]
             );
             

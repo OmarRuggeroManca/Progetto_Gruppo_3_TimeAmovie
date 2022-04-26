@@ -1,5 +1,5 @@
 export interface MovieComment {
-    user_id: string;
-    movie_id: string;
+    user_id: number | null;
+    movie_id: number| null;
     movie_comment: string;
   }
