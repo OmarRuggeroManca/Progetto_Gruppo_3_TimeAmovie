@@ -7,7 +7,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<CommentEntity> Comments{ get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = "Server=localhost;Port=3306;Database=moviecomments;Uid=root;pwd=";
+        var connectionString = "Server=localhost;Port=3306;Database=moviecomments;Uid=root;pwd=root";
         var mariaDbServerVersion = new MariaDbServerVersion(new Version(10, 4, 22));
 
         optionsBuilder.UseMySql(connectionString, mariaDbServerVersion);

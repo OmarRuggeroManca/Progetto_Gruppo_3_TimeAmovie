@@ -37,7 +37,7 @@ namespace CommentsApp.Core.Service
             {
                 return comment;
             }
-            throw new CommentNotFoundException(commentId);
+            throw new CommentNotFoundException();
         }
         public Comment UpdateComment(int commentId, Comment commentWithUpdatedProperties)
         {
@@ -49,17 +49,17 @@ namespace CommentsApp.Core.Service
                 CheckMinCharacters(commentWithUpdatedProperties.MovieComment);
                 return _storageServiceComment.UpdateComment(commentId, commentWithUpdatedProperties);
             }
-            throw new CommentNotFoundException(commentId);
+            throw new CommentNotFoundException();
         }
 
-        public bool DeleteCommentById(int commentId) 
+        public bool DeleteCommentById(int userId, int movieId) 
         {
-            var comment = _storageServiceComment.DeleteCommentById(commentId);
+            var comment = _storageServiceComment.DeleteCommentById(userId, movieId);
             if (comment != false)
             {
                 return true;
             }
-            throw new CommentNotFoundException(commentId);
+            throw new CommentNotFoundException();
         }
 
         /// <summary>

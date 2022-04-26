@@ -54,7 +54,7 @@ namespace CommentsApp.RestAPI.Controllers
         {
             try
             {
-                var createdComment = _applicationService.CreateComment(parameters.UserId, 
+                var createdComment = _applicationService.CreateComment(parameters.UserId,
                     parameters.MovieId, parameters.MovieComment);
                 return Ok(CommentMapper.From(createdComment));
             }
@@ -70,12 +70,12 @@ namespace CommentsApp.RestAPI.Controllers
 
         [EnableCors("MyPolicy")]
         [HttpDelete]
-        [Route("{comment-id}")]
-        public ActionResult<CommentDTO> DeleteCommentById([FromRoute(Name = "comment-id")] int commentId)
+        [Route("{user-id}/{movie-id}")]
+        public ActionResult<CommentDTO> DeleteCommentById([FromRoute(Name = "user-id")] int userId, [FromRoute(Name = "movie-id")] int movieId)
         {
             try
             {
-                var deletedComment = _applicationService.DeleteCommentById(commentId);
+                var deletedComment = _applicationService.DeleteCommentById(userId, movieId);
                 return Ok("Il commento è stato eliminato.");
             }
             catch (CommentNotFoundException ex)

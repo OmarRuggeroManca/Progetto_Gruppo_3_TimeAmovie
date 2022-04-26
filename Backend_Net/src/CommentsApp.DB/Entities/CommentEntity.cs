@@ -13,10 +13,13 @@ namespace CommentsApp.DB.Entities
     {
         [Column("id"), Key]
         public int Id { get; set; }
+
         [Column("user_id"), Required]
         public int UserId { get; set; }
+
         [Column("movie_id"), Required]
         public int MovieId { get; set; }
+
         [Column("movie_comment"), Required]
         public string MovieComment { get; set; }
     }

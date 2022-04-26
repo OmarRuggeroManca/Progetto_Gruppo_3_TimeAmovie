@@ -17,6 +17,6 @@ namespace CommentsApp.Core.Service
         List<Comment> GetAllComments();
         Comment GetCommentById(int commentId);
         Comment UpdateComment(int commentId, Comment commentWithUpdatedProperties);
-        bool DeleteCommentById(int commentId);
+        bool DeleteCommentById(int UserId, int MovieId);
     }
 }

@@ -8,6 +8,6 @@ namespace CommentsApp.Core.Exceptions
 {
     public class CommentNotFoundException : Exception
     {
-        public CommentNotFoundException(int commentId):base($"It was not found any comment with Id: {commentId}") {}
+        public CommentNotFoundException():base("comment not found") {}
     }
 }

@@ -62,9 +62,9 @@ namespace CommentsApp.DB.Service
             return DbCommentMapper.From(commentToUpdate);
         }
 
-        public bool DeleteCommentById(int commentId)
+        public bool DeleteCommentById(int UserId, int MovieId)
         {
-            var commentToDelete = _context.Comments.Find(commentId);
+            var commentToDelete = _context.Comments.FirstOrDefault(c => c.UserId == UserId && c.MovieId == MovieId);
             if (commentToDelete != null)
             {
                 _context.Comments.Remove(commentToDelete);
@@ -75,3 +75,9 @@ namespace CommentsApp.DB.Service
         }
     }
 }
+
+
+
+
+
+
