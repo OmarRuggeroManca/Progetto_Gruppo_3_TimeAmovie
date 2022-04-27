@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
 
 import jsPDF from 'jspdf';
+import { ActorInfo } from 'src/models/ActorInfo';
 
 
 @Component({
@@ -13,18 +14,20 @@ import jsPDF from 'jspdf';
 })
 export class TimelineComponent implements OnInit {
 
+  //Variabili Timeline dimostrativa
+  actorDataSample: Partial<ActorData> = {};
+  orderedMoviesSample: Cast[] | undefined = [];
+  actorSample: number | null = 62;
+
+  //Variabili Timeline generata dall'utente
+  actorInfo: ActorInfo= {} as ActorInfo;
+  actorId: number | null = null;
   actorData: Partial<ActorData> = {};
   orderedMovies: Cast[] | undefined = [];
-  actorId: number | null = 500;
+  
 
-  paramsTimeline: any | null = null;
-
-  constructor(private apiMovieService: ApiMovieService,
-    private router: Router, activatedRoute: ActivatedRoute) {
-      activatedRoute.params.subscribe(val => {
-        this.paramsTimeline = val;
-      });
-  }
+  constructor(public apiMovieService: ApiMovieService,
+    private router: Router) {}
 
   //DA RIVEDERE
   @ViewChild('timelinepdf', { static: false }) el!: ElementRef;
@@ -38,11 +41,42 @@ export class TimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTimeline();
-    console.log(this.paramsTimeline);
+    this.getSampleTimeline();
   }
 
-  getTimeline() {
+  //Creazione della timeline di un attore senza filtri
+  getSampleTimeline() {
+    this.apiMovieService.getMoviesByActorId(this.actorSample).subscribe({
+      next: (res) => {
+        this.actorDataSample = res;
+        this.orderedMoviesSample = this.actorDataSample.credits?.cast.filter(x => x.release_date != undefined);
+        this.orderedMoviesSample?.sort((a, b) => {
+          if (a.release_date != undefined && b.release_date != undefined) {
+            if (b.release_date > a.release_date) {
+              return 1;
+            }
+            if (b.release_date < a.release_date) {
+              return -1;
+            }
+            return 0;
+          }
+          else return 0;
+        });
+      }
+    })
+  }
+
+  //Creazione timeline generata dall'utente
+  getUserTimeline() {
+    //Recupera le info dell'attore dato il nome e il cognome, da qui poi si recupera l'id
+    this.apiMovieService.getActorIdByname(this.apiMovieService.paramsTimeline.name, this.apiMovieService.paramsTimeline.surname).subscribe({
+      next: (res) => {
+        this.actorInfo = res;
+        //this.actorId = this.actorInfo.results.id;
+      },
+      error: () => console.log("Id attore non trovato.")
+    })
+    
     this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
       next: (res) => {
         this.actorData = res;
@@ -62,6 +96,8 @@ export class TimelineComponent implements OnInit {
       }
     })
   }
+
+
 
   onMovieClick(event: number) {
     this.router.navigateByUrl(`/movie/${event}`)

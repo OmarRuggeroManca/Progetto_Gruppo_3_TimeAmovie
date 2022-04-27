@@ -4,6 +4,7 @@ import { ActorData } from 'src/models/ActorData';
 import { ActorInfo } from 'src/models/ActorInfo';
 import { MovieData } from 'src/models/MovieData';
 import { MovieStaff } from 'src/models/MovieStaff';
+import { ParamsTimeline } from 'src/models/ParamsTimeline';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import { MovieStaff } from 'src/models/MovieStaff';
 export class ApiMovieService {
 
   apiKey: String = '1cce2e1670148c77b8d1d5127cbc3d0e';  //Api Key TMDB
+  paramsTimeline: ParamsTimeline = {} as ParamsTimeline;
+
   constructor(private httpClient: HttpClient) { }
 
   getActorIdByname(name: string | null, surname: string | null) {

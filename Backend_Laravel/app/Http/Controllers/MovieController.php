@@ -145,13 +145,12 @@ class MovieController extends Controller
 
 
     public function deleteRatingsByUserIdAndMovieId( $movie_id, $user_id){
-    
 
-        $movie = Movie::where('movie_id','LIKE',$movie_id)->where('user_id','LIKE',$user_id)->get();  //non funziona
+        $movie = Movie::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->get();  //non funziona
         //$movie = Movie::find($movie_id);  //questa funziona
         $movie->delete();  //scazza roba
         return response()->json([
-            new MovieResource($movie),  //solo per vedere se funzionano le chiamate a monte
+            'message'=>'Rating deleted.',
             'Response Status'=>Response::HTTP_NO_CONTENT
         ]);
         

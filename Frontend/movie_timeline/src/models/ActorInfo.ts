@@ -5,7 +5,7 @@ export interface ActorInfo {
     total_results: number;
   }
   
-  interface Result {
+  export interface Result {
     adult: boolean;
     gender: number;
     id: number;
