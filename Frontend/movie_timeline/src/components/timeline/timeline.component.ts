@@ -24,8 +24,8 @@ export class TimelineComponent implements OnInit {
     }
     
 
+    //DA RIVEDERE
     @ViewChild('timelinepdf', {static: false}) el!: ElementRef;    
-
     makePDF(){
       let pdf = new jsPDF('p', 'pt', 'a3');      
       pdf.html(this.el.nativeElement,{

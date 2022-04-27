@@ -31,6 +31,9 @@ getCommento(movie_id: number | null){
 postCommento(movieComment: MovieComment){
   return this.httpClient.post<MovieComment>(`http://localhost:5167/comments/`, movieComment);
 }
+deleteCommento(userId: number, movieId: number){
+  return this.httpClient.delete<MovieComment>(`http://localhost:5167/comments/${userId}/${movieId}`);
+}
 
 // Node.js
 getFilmPreferito(movie_id: number | null){

@@ -54,6 +54,11 @@ export class MovieListComponent implements OnInit {
   deleteFavMovie(event: number){
     this.backendAPIService.deleteFilmPreferito(event).subscribe({
       next: (res) => {
+        console.log("Film rimosso dai preferiti!")
+        this.backendAPIService.deleteCommento(this.backendAPIService.userActive.id, event).subscribe({
+          next: (res) => console.log("Commento cancellato!"),
+          error: () => console.log("Errore .Net")
+        })
         this.filteredMovieList = [];
         this.getList();
       }
