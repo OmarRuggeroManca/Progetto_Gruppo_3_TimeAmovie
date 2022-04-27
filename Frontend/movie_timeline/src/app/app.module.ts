@@ -11,6 +11,7 @@ import { TimelineComponent } from '../components/timeline/timeline.component';
 import { HomeComponent } from '../components/home/home.component';
 import { MovieListComponent } from '../components/movie-list/movie-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { InputTimelineComponent } from '../components/input-timeline/input-timeline.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MovieComponent,
     TimelineComponent,
     HomeComponent,
-    MovieListComponent
+    MovieListComponent,
+    InputTimelineComponent
   ],
   imports: [
     BrowserModule,

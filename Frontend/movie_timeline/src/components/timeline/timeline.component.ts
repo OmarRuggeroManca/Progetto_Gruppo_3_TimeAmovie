@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
 
 import jsPDF from 'jspdf';
-
-
 
 
 @Component({
@@ -19,28 +17,32 @@ export class TimelineComponent implements OnInit {
   orderedMovies: Cast[] | undefined = [];
   actorId: number | null = 500;
 
-  constructor(private apiMovieService: ApiMovieService,
-    private router: Router) {
-    }
-    
+  paramsTimeline: any | null = null;
 
-    //DA RIVEDERE
-    @ViewChild('timelinepdf', {static: false}) el!: ElementRef;    
-    makePDF(){
-      let pdf = new jsPDF('p', 'pt', 'a3');      
-      pdf.html(this.el.nativeElement,{
-        callback: (pdf)=> {
-          pdf.save("PDFando.pdf");
-        }      
+  constructor(private apiMovieService: ApiMovieService,
+    private router: Router, activatedRoute: ActivatedRoute) {
+      activatedRoute.params.subscribe(val => {
+        this.paramsTimeline = val;
       });
-    }  
-      
+  }
+
+  //DA RIVEDERE
+  @ViewChild('timelinepdf', { static: false }) el!: ElementRef;
+  makePDF() {
+    let pdf = new jsPDF('p', 'pt', 'a3');
+    pdf.html(this.el.nativeElement, {
+      callback: (pdf) => {
+        pdf.save("PDFando.pdf");
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.getTimeline();
+    console.log(this.paramsTimeline);
   }
 
-  getTimeline(){
+  getTimeline() {
     this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
       next: (res) => {
         this.actorData = res;

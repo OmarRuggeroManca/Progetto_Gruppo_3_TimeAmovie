@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/models/User';
 import { BackendAPIService } from 'src/services/backend-api.service';
 
 @Component({

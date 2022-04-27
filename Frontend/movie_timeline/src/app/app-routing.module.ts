@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/components/home/home.component';
+import { InputTimelineComponent } from 'src/components/input-timeline/input-timeline.component';
 import { MovieListComponent } from 'src/components/movie-list/movie-list.component';
 import { TimelineComponent } from 'src/components/timeline/timeline.component';
 import { LoginComponent } from '../components/login/login.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path:'login', component : LoginComponent},
   {path:'list', component : MovieListComponent},
   {path:'movie/:movieId', component : MovieComponent},
-  {path:'timeline', component : TimelineComponent},
+  {path:'timeline/:paramsTimeline', component : TimelineComponent},
+  {path:'params', component : InputTimelineComponent},
   {path:'home', component : HomeComponent},
   {path:'', redirectTo: '/home', pathMatch: 'full'}
 ];
