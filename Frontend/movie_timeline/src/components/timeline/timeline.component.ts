@@ -17,19 +17,20 @@ export class TimelineComponent implements OnInit {
   //Variabili Timeline dimostrativa
   actorDataSample: Partial<ActorData> = {};
   orderedMoviesSample: Cast[] | undefined = [];
-  actorSample: number | null = 62;
+  actorSample: number | null = 500;
 
   //Variabili Timeline generata dall'utente
   actorInfo: Partial<ActorInfo> = {};
-  actorResult: Result[] | undefined = [];
   actorId: number | null = null;
   actorData: Partial<ActorData> = {};
   orderedMovies: Cast[] | undefined = [];
-  downloadIcon = faFileArrowDown;  //aggiunto Davide
-  
+
+  //Icone
+  downloadIcon = faFileArrowDown;
+
 
   constructor(public apiMovieService: ApiMovieService,
-    private router: Router) {}
+    private router: Router) { }
 
   //DA RIVEDERE
   @ViewChild('timelinepdf', { static: false }) el!: ElementRef;
@@ -43,7 +44,7 @@ export class TimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getSampleTimeline();
+    this.getUserTimeline();
   }
 
   //Creazione della timeline d'esempio con tutti i film di un attore
@@ -74,33 +75,37 @@ export class TimelineComponent implements OnInit {
     this.apiMovieService.getActorIdByname(this.apiMovieService.paramsTimeline.name, this.apiMovieService.paramsTimeline.surname).subscribe({
       next: (res) => {
         this.actorInfo = res;
-        
-      },        
+        this.actorInfo.results?.forEach(element => {
+          if (element.gender != 0) {
+            this.actorId = element.id;
+          };
+          //Recupera tutti i film di un attore
+          this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
+            next: (res) => {
+              this.actorData = res;
+              //Ignora i film senza data d'uscita
+              this.orderedMovies = this.actorData.credits?.cast.filter(x => x.release_date != undefined);
+              //Ordinamento decrescente
+              this.orderedMovies?.sort((a, b) => {
+                if (a.release_date != undefined && b.release_date != undefined) {
+                  if (b.release_date > a.release_date) {
+                    return 1;
+                  }
+                  if (b.release_date < a.release_date) {
+                    return -1;
+                  }
+                  return 0;
+                }
+                else return 0;
+              });
+            }
+          })
+        })
+
+      },
       error: () => console.log("Id attore non trovato.")
     })
-    
-    // //Recupera tutti i film di un attore
-    // this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
-    //   next: (res) => {
-    //     this.actorData = res;
-    //     this.orderedMovies = this.actorData.credits?.cast.filter(x => x.release_date != undefined);
-    //     this.orderedMovies?.sort((a, b) => {
-    //       if (a.release_date != undefined && b.release_date != undefined) {
-    //         if (b.release_date > a.release_date) {
-    //           return 1;
-    //         }
-    //         if (b.release_date < a.release_date) {
-    //           return -1;
-    //         }
-    //         return 0;
-    //       }
-    //       else return 0;
-    //     });
-    //   }
-    // })
   }
-
-
 
   onMovieClick(event: number) {
     this.router.navigateByUrl(`/movie/${event}`)

@@ -19,10 +19,12 @@ export class MovieListComponent implements OnInit {
   movieIdList: MovieFav[] = [];
   movieList: MovieData[] = [];
   filteredMovieList: MovieData[] = [];
+  filter: string = '';
+  ratingToDelete: MovieRatingGetForDelete = {} as MovieRatingGetForDelete;
+
+  //Icone
   searchIcon = faSearch;
   trashIcon = faTrashAlt;
-  ratingToDelete: MovieRatingGetForDelete = {} as MovieRatingGetForDelete;
-  filter: string = '';
 
   constructor(
     private apiMovieService: ApiMovieService,
