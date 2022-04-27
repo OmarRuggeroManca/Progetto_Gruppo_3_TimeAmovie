@@ -4,7 +4,7 @@ import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
 
 import jsPDF from 'jspdf';
-import { ActorInfo } from 'src/models/ActorInfo';
+import { ActorInfo, Result } from 'src/models/ActorInfo';
 
 
 @Component({
@@ -20,7 +20,8 @@ export class TimelineComponent implements OnInit {
   actorSample: number | null = 62;
 
   //Variabili Timeline generata dall'utente
-  actorInfo: ActorInfo= {} as ActorInfo;
+  actorInfo: Partial<ActorInfo> = {};
+  actorResult: Result[] | undefined = [];
   actorId: number | null = null;
   actorData: Partial<ActorData> = {};
   orderedMovies: Cast[] | undefined = [];
@@ -44,7 +45,7 @@ export class TimelineComponent implements OnInit {
     this.getSampleTimeline();
   }
 
-  //Creazione della timeline di un attore senza filtri
+  //Creazione della timeline d'esempio con tutti i film di un attore
   getSampleTimeline() {
     this.apiMovieService.getMoviesByActorId(this.actorSample).subscribe({
       next: (res) => {
@@ -72,29 +73,30 @@ export class TimelineComponent implements OnInit {
     this.apiMovieService.getActorIdByname(this.apiMovieService.paramsTimeline.name, this.apiMovieService.paramsTimeline.surname).subscribe({
       next: (res) => {
         this.actorInfo = res;
-        //this.actorId = this.actorInfo.results.id;
-      },
+        
+      },        
       error: () => console.log("Id attore non trovato.")
     })
     
-    this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
-      next: (res) => {
-        this.actorData = res;
-        this.orderedMovies = this.actorData.credits?.cast.filter(x => x.release_date != undefined);
-        this.orderedMovies?.sort((a, b) => {
-          if (a.release_date != undefined && b.release_date != undefined) {
-            if (b.release_date > a.release_date) {
-              return 1;
-            }
-            if (b.release_date < a.release_date) {
-              return -1;
-            }
-            return 0;
-          }
-          else return 0;
-        });
-      }
-    })
+    // //Recupera tutti i film di un attore
+    // this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
+    //   next: (res) => {
+    //     this.actorData = res;
+    //     this.orderedMovies = this.actorData.credits?.cast.filter(x => x.release_date != undefined);
+    //     this.orderedMovies?.sort((a, b) => {
+    //       if (a.release_date != undefined && b.release_date != undefined) {
+    //         if (b.release_date > a.release_date) {
+    //           return 1;
+    //         }
+    //         if (b.release_date < a.release_date) {
+    //           return -1;
+    //         }
+    //         return 0;
+    //       }
+    //       else return 0;
+    //     });
+    //   }
+    // })
   }
 
 

@@ -28,7 +28,7 @@ export class InputTimelineComponent implements OnInit {
       yearMax: paramsTimeline.value.name,
     }
 
-    this.router.navigateByUrl(`/timeline/`);
+    this.router.navigateByUrl(`/timeline`);
   }
 
 

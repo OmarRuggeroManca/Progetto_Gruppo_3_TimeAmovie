@@ -148,11 +148,14 @@ class MovieController extends Controller
 
         $movie = Movie::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->get();  //non funziona
         //$movie = Movie::find($movie_id);  //questa funziona
-        $movie->delete();  //scazza roba
         return response()->json([
-            'message'=>'Rating deleted.',
-            'Response Status'=>Response::HTTP_NO_CONTENT
+            'message'=> $movie
         ]);
+        // $movie->delete();  //scazza roba
+        // return response()->json([
+        //     'message'=>'Rating deleted.',
+        //     'Response Status'=>Response::HTTP_NO_CONTENT
+        // ]);
         
 
         //versione prova con metodi DB

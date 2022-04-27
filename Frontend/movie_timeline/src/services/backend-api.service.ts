@@ -4,6 +4,7 @@ import { User } from 'src/models/User';
 import { MovieRating } from 'src/models/MovieRating';
 import { MovieComment } from 'src/models/MovieComment';
 import { MovieFav } from 'src/models/MovieFav';
+import { MovieRatingGetForDelete } from 'src/models/MovieRatingGetForDelete';
 
 
 @Injectable({
@@ -17,11 +18,15 @@ export class BackendAPIService {
   userActive: User = {} as User;
   
 // Laravel  
-getValutazione(movie_id: number | null){
-  return this.httpClient.get<MovieRating>(`http://localhost:8000/api/movie_id/${movie_id}`);
+getValutazione(movie_id: number | null, user_id: number | null){
+  return this.httpClient.get<MovieRatingGetForDelete>(`http://localhost:8000/api/confront/${movie_id}/${user_id}`);
 }
 postValutazione(movieRating: MovieRating | null){
   return this.httpClient.post<MovieRating>(`http://localhost:8000/api/movie`, movieRating);
+}
+
+deleteValutazione(id_Rating: number){
+  return this.httpClient.delete<MovieRatingGetForDelete>(`http://localhost:8000/api/movie/${id_Rating}`);
 }
 
 // .NET

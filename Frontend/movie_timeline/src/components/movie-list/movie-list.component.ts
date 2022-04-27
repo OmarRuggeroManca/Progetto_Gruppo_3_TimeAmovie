@@ -6,6 +6,7 @@ import { BackendAPIService } from 'src/services/backend-api.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MovieFav } from 'src/models/MovieFav';
 import { MovieData } from 'src/models/MovieData';
+import { MovieRatingGetForDelete } from 'src/models/MovieRatingGetForDelete';
 
 @Component({
   selector: 'app-movie-list',
@@ -20,7 +21,7 @@ export class MovieListComponent implements OnInit {
   filteredMovieList: MovieData[] = [];
   searchIcon = faSearch;
   trashIcon = faTrashAlt;
-
+  ratingToDelete: MovieRatingGetForDelete = {} as MovieRatingGetForDelete;
   filter: string = '';
 
   constructor(
@@ -51,21 +52,36 @@ export class MovieListComponent implements OnInit {
     this.router.navigateByUrl(`/movie/${event}`)
   }
 
-  deleteFavMovie(event: number){
+
+  //Implementare eliminazione rating(Laravel)
+  deleteFavMovie(event: number) {
     this.backendAPIService.deleteFilmPreferito(event).subscribe({
-      next: (res) => {
+      next: () => {
         console.log("Film rimosso dai preferiti!")
         this.backendAPIService.deleteCommento(this.backendAPIService.userActive.id, event).subscribe({
-          next: (res) => console.log("Commento cancellato!"),
+          next: () => console.log("Commento cancellato!"),
           error: () => console.log("Errore .Net")
         })
-        this.filteredMovieList = [];
-        this.getList();
+      },
+      error: () => console.log("Errore Node")
+    })
+
+    this.backendAPIService.getValutazione(event, this.backendAPIService.userActive.id).subscribe({
+      next: (res) => {
+        this.ratingToDelete = res;
+        this.backendAPIService.deleteValutazione(this.ratingToDelete.id).subscribe({
+          next: () => console.log("Valutazione eliminata!"),
+          error: () => console.log("Errore Laravel")
+        })
       }
     })
+
+
+    this.filteredMovieList = [];
+    this.getList();
   }
 
-  applyFilter(event: String){
+  applyFilter(event: String) {
     this.filteredMovieList = this.movieList.filter(x => x.title.toLowerCase().includes(`${event.toLowerCase()}`))
   }
 
