@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
-
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';  //aggiunto davide
 import jsPDF from 'jspdf';
 import { ActorInfo, Result } from 'src/models/ActorInfo';
 
@@ -25,6 +25,7 @@ export class TimelineComponent implements OnInit {
   actorId: number | null = null;
   actorData: Partial<ActorData> = {};
   orderedMovies: Cast[] | undefined = [];
+  downloadIcon = faFileArrowDown;  //aggiunto Davide
   
 
   constructor(public apiMovieService: ApiMovieService,
