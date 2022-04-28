@@ -48,10 +48,10 @@ public class UserService {
     che password, in particolare quest'ultima sarà criptata per questioni di security.
      */
     public User userLogin(User login) {
-        String passwordCriptatissima = Encrypter.encrypt(login.getPassword());
+        String passwordCriptata = Encrypter.encrypt(login.getPassword());
         if (login.getPassword() != null && login.getUsername() != null) {
             User credenziali = userDAO.findByUsername(login.getUsername());
-            if (credenziali.getPassword().equals(passwordCriptatissima)) {
+            if (credenziali.getPassword().equals(passwordCriptata)) {
                 return credenziali;
             }
         } else {

@@ -9,23 +9,26 @@ import { BackendAPIService } from 'src/services/backend-api.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit {  
 
-  
   constructor(private httpClient: HttpClient,
               private backendAPIService: BackendAPIService,
               private router: Router) { }
+
+  usernameOrPasswordWrong: boolean = false;
+  
 
   ngOnInit(): void {
   }
 
   login(user: NgForm) {
     this.backendAPIService.postLogin(user.value).subscribe({
-      next: (res) =>{ this.backendAPIService.userLogged = true;         
-      this.backendAPIService.userActive = res;
-      this.router.navigateByUrl(`/params`);
-      },
-      error: () => console.log('error')
+      next: (res) =>{if(res!== null){ 
+        this.backendAPIService.userLogged = true;         
+        this.backendAPIService.userActive = res;
+        this.router.navigateByUrl(`/params`);
+      }},
+      error: () => this.usernameOrPasswordWrong = true
     });
   } 
 

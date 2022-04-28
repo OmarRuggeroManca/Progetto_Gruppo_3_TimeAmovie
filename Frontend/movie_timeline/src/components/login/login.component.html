@@ -9,8 +9,9 @@
           
           <form #user="ngForm" (submit)="login(user)">
 
+            <p *ngIf="usernameOrPasswordWrong === true" style=" color: darkred; font-size: x-large"> Username o Password errati!</p>
             <!-- username input -->
-            <div div class="form-floating mb-3">
+            <div div class="form-floating mb-3">              
               <input 
               [ngModel]
               name="username"
