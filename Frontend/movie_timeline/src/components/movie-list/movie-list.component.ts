@@ -76,7 +76,6 @@ export class MovieListComponent implements OnInit {
   }
 
 
-
   applyFilter(event: String) {
     this.filteredMovieList = this.movieList.filter(x => x.title.toLowerCase().includes(`${event.toLowerCase()}`))
   }
