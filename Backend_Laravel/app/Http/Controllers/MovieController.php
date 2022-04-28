@@ -144,29 +144,16 @@ class MovieController extends Controller
     }       
 
 
-    public function deleteRatingsByUserIdAndMovieId( $movie_id, $user_id){
+    public function deleteRatingsByUserIdAndMovieId( $movie_id, $user_id)
+    {
 
-        $movie = Movie::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->get();  //non funziona
-        //$movie = Movie::find($movie_id);  //questa funziona
-        return response()->json([
-            'message'=> $movie
-        ]);
-        // $movie->delete();  //scazza roba
-        // return response()->json([
-        //     'message'=>'Rating deleted.',
-        //     'Response Status'=>Response::HTTP_NO_CONTENT
-        // ]);
+        $movie = Movie::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->delete();  
         
-
-        //versione prova con metodi DB
-        /*DB::delete('delete from movies where movie_id = ?',[$movie_id] && 'where user_id =',[$user_id]);  //da problemi
         return response()->json([            
-            'Response Status'=>Response::HTTP_OK
-        ]);*/
-    }    
-
-    
-
+            'message'=>'Rating deleted.',
+            'Response Status'=>Response::HTTP_NO_CONTENT
+        ]);        
+    }
 
     
 }

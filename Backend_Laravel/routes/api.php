@@ -27,4 +27,4 @@ Route::get('/user_id/{user_id}','App\Http\Controllers\MovieController@getRatingB
 
 Route::get('/confront/{movie_id}/{user_id}','App\Http\Controllers\MovieController@getRatingsByUserIdAndMovieId');
 
-Route::delete('/delete/{movie_id}/{user_id}','App\Http\Controllers\MovieController@deleteRatingsByUserIdAndMovieId');
+Route::get('/delete/{movie_id}/{user_id}','App\Http\Controllers\MovieController@deleteRatingsByUserIdAndMovieId');  //mistero della fede
