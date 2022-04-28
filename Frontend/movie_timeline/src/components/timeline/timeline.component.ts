@@ -52,19 +52,8 @@ export class TimelineComponent implements OnInit {
     this.apiMovieService.getMoviesByActorId(this.actorSample).subscribe({
       next: (res) => {
         this.actorDataSample = res;
-        this.orderedMoviesSample = this.actorDataSample.credits?.cast.filter(x => x.release_date != undefined);
-        this.orderedMoviesSample?.sort((a, b) => {
-          if (a.release_date != undefined && b.release_date != undefined) {
-            if (b.release_date > a.release_date) {
-              return 1;
-            }
-            if (b.release_date < a.release_date) {
-              return -1;
-            }
-            return 0;
-          }
-          else return 0;
-        });
+        this.orderedMoviesSample = this.actorDataSample.credits?.cast.filter(x => x.release_date != undefined && x.release_date != "");
+        this.descendingOrder(this.orderedMoviesSample);
       }
     })
   }
@@ -75,33 +64,26 @@ export class TimelineComponent implements OnInit {
     this.apiMovieService.getActorIdByname(this.apiMovieService.paramsTimeline.name, this.apiMovieService.paramsTimeline.surname).subscribe({
       next: (res) => {
         this.actorInfo = res;
-        this.actorInfo.results?.forEach(element => {
-          if (element.gender != 0) {
-            this.actorId = element.id;
+        this.actorInfo.results?.forEach(result => {
+          if (result.gender != 0) {
+            this.actorId = result.id;
           };
           //Recupera tutti i film di un attore
           this.apiMovieService.getMoviesByActorId(this.actorId).subscribe({
             next: (res) => {
               this.actorData = res;
-              //Ignora i film senza data d'uscita
-              this.orderedMovies = this.actorData.credits?.cast.filter(x => x.release_date != undefined);
+              //Ignora i film senza data d'uscita e li ordina
+              this.orderedMovies = this.actorData.credits?.cast.filter(x => x.release_date != undefined && x.release_date != "");
               //Ordinamento decrescente
-              this.orderedMovies?.sort((a, b) => {
-                if (a.release_date != undefined && b.release_date != undefined) {
-                  if (b.release_date > a.release_date) {
-                    return 1;
-                  }
-                  if (b.release_date < a.release_date) {
-                    return -1;
-                  }
-                  return 0;
-                }
-                else return 0;
-              });
+              this.descendingOrder(this.orderedMovies);
+              //Controllo se presente stringa per il genere ed eventuale filtraggio
+              this.filterGenre(this.orderedMovies);
+              //Controllo se presente stringa per il durata massima ed eventuale filtraggio
+              //Controllo se presente stringa per il budget massimo ed eventuale filtraggio
+              //Controllo se presente stringa per l'anno limite ed eventuale filtraggio
             }
           })
         })
-
       },
       error: () => console.log("Id attore non trovato.")
     })
@@ -109,6 +91,52 @@ export class TimelineComponent implements OnInit {
 
   onMovieClick(event: number) {
     this.router.navigateByUrl(`/movie/${event}`)
+  }
+
+  //DA CONTROLLARE
+  filterGenre(movies: Cast[] | undefined) {
+    //Variabile di controllo per la presenza del genere
+    let genreIsPresent: Boolean = false;
+    let otherGenreIsPresent: Boolean = true; // DA CONTROLLARE
+    //Controllo se il filtro genere è valido
+    if (this.apiMovieService.paramsTimeline.genre != null && this.apiMovieService.paramsTimeline.genre != "") {
+      //Ciclo ogni film dell'array in entrata
+      movies?.forEach(movie => {
+        //Per ogni film recupero i dati specifici dello stesso
+        this.apiMovieService.getMovieById(movie.id).subscribe({
+          next: (res) => {
+            //Controllo che fra i generi sia presente quello inserito dall'utente
+            res.genres.forEach(genre => {
+              if (genre.name.toLowerCase() === this.apiMovieService.paramsTimeline.genre?.toLowerCase()) {
+                //Se è presente setto la variabile di controllo a true
+                genreIsPresent = true;
+                otherGenreIsPresent = false; //DA CONTROLLARE
+              }
+            })
+            //Se non è presente il genere nel film lo cancelli dall'array dei movie passato come parametro
+            if (genreIsPresent === false && otherGenreIsPresent) { //DA CONTROLLARE
+              let index = movies.findIndex(x => x.id == movie.id)
+              movies.splice(index, 1)
+            }
+          }
+        })
+      })
+    }
+  }
+
+  descendingOrder(movies: Cast[] | undefined) {
+    movies?.sort((a, b) => {
+      if (a.release_date != undefined && b.release_date != undefined) {
+        if (b.release_date > a.release_date) {
+          return 1;
+        }
+        if (b.release_date < a.release_date) {
+          return -1;
+        }
+        return 0;
+      }
+      else return 0;
+    });
   }
 
 }

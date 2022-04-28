@@ -22,7 +22,7 @@ export class InputTimelineComponent implements OnInit {
     this.apiMovieService.paramsTimeline = {
       name: paramsTimeline.value.name.toLowerCase(),
       surname: paramsTimeline.value.surname.toLowerCase(),
-      genre: paramsTimeline.value.genre,
+      genre: paramsTimeline.value.genre.toLowerCase(),
       runtimeMax: paramsTimeline.value.runtimeMax,
       budgetMax: paramsTimeline.value.genre,
       yearMax: paramsTimeline.value.name,
@@ -30,7 +30,6 @@ export class InputTimelineComponent implements OnInit {
 
     this.router.navigateByUrl(`/timeline`);
   }
-
 
 
 }
