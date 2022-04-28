@@ -185,7 +185,7 @@ export class TimelineComponent implements OnInit {
         this.apiMovieService.getMovieById(movie.id).subscribe({
           next: (res) => {
             let releaseDate = new Date(res.release_date);
-            //Se il budget del film è maggiore di quello inserita come filtro, il film viene eliminato
+            //Se la data d'uscita del film è successiva a quella inserita come filtro, il film viene eliminato
             if (releaseDate > yearMax) {
               movies?.forEach(function (item, index) {
                 if (item.id === movie.id) {
