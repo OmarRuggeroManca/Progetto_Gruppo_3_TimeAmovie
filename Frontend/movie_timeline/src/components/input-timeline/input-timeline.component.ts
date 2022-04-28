@@ -48,7 +48,6 @@ export class InputTimelineComponent implements OnInit {
     else
     this.apiMovieService.paramsTimeline.yearMax = null
 
-    console.log(this.apiMovieService.paramsTimeline)
     this.router.navigateByUrl(`/timeline`);
   }
 

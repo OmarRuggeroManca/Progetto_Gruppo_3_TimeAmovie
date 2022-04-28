@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
-import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';  //aggiunto davide
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
 import { ActorInfo, Result } from 'src/models/ActorInfo';
 
@@ -91,8 +91,6 @@ export class TimelineComponent implements OnInit {
       error: () => console.log("Id attore non trovato.")
     })
   }
-
-  
 
   filterGenre(movies: Cast[] | undefined) {
     //Variabile di controllo per la presenza del genere
@@ -198,7 +196,6 @@ export class TimelineComponent implements OnInit {
       }) 
     }
   }
-
 
   descendingOrder(movies: Cast[] | undefined) {
     movies?.sort((a, b) => {
