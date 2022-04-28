@@ -147,8 +147,7 @@ class MovieController extends Controller
     public function deleteRatingsByUserIdAndMovieId( $movie_id, $user_id)
     {
 
-        $movie = Movie::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->delete();  
-        
+        $movie = Movie::where('user_id','LIKE',$user_id)->where('movie_id','LIKE',$movie_id)->delete();         
         return response()->json([            
             'message'=>'Rating deleted.',
             'Response Status'=>Response::HTTP_NO_CONTENT

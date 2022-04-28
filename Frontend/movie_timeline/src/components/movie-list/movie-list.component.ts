@@ -20,7 +20,7 @@ export class MovieListComponent implements OnInit {
   movieList: MovieData[] = [];
   filteredMovieList: MovieData[] = [];
   filter: string = '';
-  ratingToDelete: MovieRatingGetForDelete = {} as MovieRatingGetForDelete;
+  //ratingToDelete: MovieRatingGetForDelete = {} as MovieRatingGetForDelete;
 
   //Icone
   searchIcon = faSearch;
@@ -61,27 +61,21 @@ export class MovieListComponent implements OnInit {
       next: () => {
         console.log("Film rimosso dai preferiti!")
         this.backendAPIService.deleteCommento(this.backendAPIService.userActive.id, event).subscribe({
-          next: () => console.log("Commento cancellato!"),
+          next: () => {
+            console.log("Commento cancellato!")
+            this.backendAPIService.deleteValutazione(event, this.backendAPIService.userActive.id).subscribe({
+              next: () => console.log("Valutazione eliminata!"),
+              error: () => console.log("Errore Laravel")
+            })
+          },
           error: () => console.log("Errore .Net")
         })
       },
       error: () => console.log("Errore Node")
-    })
-
-    this.backendAPIService.getValutazione(event, this.backendAPIService.userActive.id).subscribe({
-      next: (res) => {
-        this.ratingToDelete = res;
-        this.backendAPIService.deleteValutazione(this.ratingToDelete.id).subscribe({
-          next: () => console.log("Valutazione eliminata!"),
-          error: () => console.log("Errore Laravel")
-        })
-      }
-    })
-
-
-    this.filteredMovieList = [];
-    this.getList();
+    });
   }
+
+
 
   applyFilter(event: String) {
     this.filteredMovieList = this.movieList.filter(x => x.title.toLowerCase().includes(`${event.toLowerCase()}`))
