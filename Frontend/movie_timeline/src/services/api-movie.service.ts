@@ -33,7 +33,7 @@ export class ApiMovieService {
   }
 
   getCrewMovie(movieId: number | null){
-    return this.httpClient.get<MovieStaff>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}`);
+    return this.httpClient.get<MovieStaff>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=it-it`);
   }
 
   

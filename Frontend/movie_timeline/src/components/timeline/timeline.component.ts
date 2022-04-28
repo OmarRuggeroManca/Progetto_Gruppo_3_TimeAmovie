@@ -5,6 +5,7 @@ import { ApiMovieService } from 'src/services/api-movie.service';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
 import { ActorInfo, Result } from 'src/models/ActorInfo';
+import { MovieData } from 'src/models/MovieData';
 
 
 @Component({
@@ -92,6 +93,7 @@ export class TimelineComponent implements OnInit {
     })
   }
 
+  //BUG: VALE SOLO PER I FILM CHE HANNO IL GENERE CERCATO INDICATO COME ULTIMO
   filterGenre(movies: Cast[] | undefined) {
     //Variabile di controllo per la presenza del genere
     let genreIsPresent: Boolean = false;
@@ -108,7 +110,7 @@ export class TimelineComponent implements OnInit {
                 //Se è presente setto la variabile di controllo a true
                 genreIsPresent = true;
               }
-              else {
+              else{
                 //Altimenti setto la variabile a false
                 genreIsPresent = false;
               }
@@ -126,6 +128,7 @@ export class TimelineComponent implements OnInit {
       })
     }
   }
+
 
   filterRuntimeMax(movies: Cast[] | undefined) {
     //Controllo se il filtro runtime è valido
@@ -193,7 +196,7 @@ export class TimelineComponent implements OnInit {
             }
           }
         })
-      }) 
+      })
     }
   }
 
@@ -212,10 +215,10 @@ export class TimelineComponent implements OnInit {
     });
   }
 
-onMovieClick(event: number) {
+  onMovieClick(event: number) {
     this.router.navigateByUrl(`/movie/${event}`)
   }
 
- 
+
 
 }
