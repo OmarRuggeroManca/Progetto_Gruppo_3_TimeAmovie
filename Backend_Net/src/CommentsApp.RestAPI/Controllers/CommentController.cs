@@ -76,7 +76,7 @@ namespace CommentsApp.RestAPI.Controllers
             try
             {
                 var deletedComment = _applicationService.DeleteCommentById(userId, movieId);
-                return Ok("Il commento è stato eliminato.");
+                return Ok();
             }
             catch (CommentNotFoundException ex)
             {

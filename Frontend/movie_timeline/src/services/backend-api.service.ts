@@ -25,8 +25,8 @@ postValutazione(movieRating: MovieRating | null){
   return this.httpClient.post<MovieRating>(`http://localhost:8000/api/movie`, movieRating);
 }
 
-deleteValutazione(id_Rating: number){
-  return this.httpClient.delete<MovieRatingGetForDelete>(`http://localhost:8000/api/movie/${id_Rating}`);
+deleteValutazione(movie_id: number | null, user_id: number | null){
+  return this.httpClient.get<MovieRatingGetForDelete>(`http://localhost:8000/api/delete/${movie_id}/${user_id}`);
 }
 
 // .NET

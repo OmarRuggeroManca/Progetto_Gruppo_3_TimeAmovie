@@ -44,7 +44,8 @@ export class TimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserTimeline();
+    //this.getUserTimeline();
+    this.getSampleTimeline();
   }
 
   //Creazione della timeline d'esempio con tutti i film di un attore
