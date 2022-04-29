@@ -1,6 +1,29 @@
+#actorTimeline{
+    height: auto;
+    margin: 0 auto;
+    padding: 25px;
+    position: relative;
+    text-align: center;
+    width: 95%;
+}
+
 h1 {
     font-weight: 700;
     font-size: 2em;
+}
+
+#boxTimeline{
+    border: 3px solid #e13822;
+    border-radius: 2px;
+    box-shadow: 7px 7px #e13822;
+    padding-top: 1%;
+}
+
+#boxActorInfo{
+    border: 3px solid #e13822;
+    border-radius: 2px;
+    box-shadow: 7px 7px #e13822;
+    padding: 5%;
 }
 
 .timelinepdf{
@@ -174,48 +197,6 @@ h1 {
 }
 
 
-
-
-/*
-
-.timelineQ {
-    border-left: 8px solid #e13822; 
-    border-radius: px;
-    margin: 0 auto;
-    letter-spacing: 0.2px;
-    position: relative;
-    line-height: 1.4em;
-    font-size: 1.03em;
-    padding: 50px 50px 0px 30px;
-    list-style: none;
-    text-align: left;
-    max-width: 70%;
-}
-
-.timelineQ .event {
-    padding: 12px 16px 0px 15px;
-    border: 3px solid #e13822;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    position: relative;
-    transition: box-shadow 300ms;
-}
-
-.timelineQ h2,
-.timelineQ h3 {
-    color: #000000;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.timelineQ p{
-    color: #000000;
-}
-
-.timelineQ a {
-    color:#000000;
-    text-decoration: none;
-}*/
 
 
 
