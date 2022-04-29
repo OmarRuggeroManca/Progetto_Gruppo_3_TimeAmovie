@@ -17,23 +17,24 @@ export class LoginComponent implements OnInit {
               private router: Router) { }
 
   usernameOrPasswordWrong: boolean = false;
-  usernameWrong: boolean = false
-  passwordWrong: boolean = false
+  usernameNull: boolean = false
+  passwordNull: boolean = false
   
 
   ngOnInit(): void {
   }
 
   //Metodo alla ricerca di uno scopo
-  /*resetStates(){ 
+  resetStates(){ 
     this.usernameOrPasswordWrong = false;
-    this.usernameWrong = false;
-    this.passwordWrong = false;
-  }*/
+    this.usernameNull = false;
+    this.passwordNull = false;
+  }
 
   login(user: NgForm) {
+    
     //controllo per campi del form nulli
-    if(user.value.username !== null && user.value.password !== null){ 
+    //if(user.value.username !== null && user.value.password !== null){ 
       //Il metodo del login viene richiamato 
         this.backendAPIService.postLogin(user.value).subscribe({
         next: (res) =>{if(res!== null){ //Se abbiamo risposta positiva dal server res non è null
@@ -43,16 +44,20 @@ export class LoginComponent implements OnInit {
         
       }},
       error: () => this.usernameOrPasswordWrong = true //Se le credenziali sono sbagliate
-
       });
-    }else{  //Controlli dei campi delle credenziali
-      if(user.value.username === null){
-      this.usernameWrong = true;
-      }if (user.value.password === null){
-         this.passwordWrong = true;
-      }      
-    }    
-  } 
+    // }else{  //Controlli dei campi delle credenziali
+    //   if(user.value.username === null){        
+    //   this.usernameNull = true;
+    //   }if (user.value.password === null){
+    //      this.passwordNull = true;}
+      // }if (user.value.password === null && user.value.username === null){
+      //   this.usernameNull = true;
+      //   this.passwordNull = true;
+      // }      
+    } 
+    
+       
+  //} 
 
 
 }

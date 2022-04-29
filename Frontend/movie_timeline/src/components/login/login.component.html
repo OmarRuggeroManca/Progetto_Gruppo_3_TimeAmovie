@@ -8,30 +8,50 @@
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
           
           <form #user="ngForm" (submit)="login(user)">
-            <!-- Prompt di errori riguardanti le credenziali -->
-            <p *ngIf="usernameOrPasswordWrong === true" style=" color: darkred; font-size: x-large"> Username e Password errati!</p>
-            <p *ngIf="usernameWrong === true" style=" color: darkred; font-size: x-large"> Username è un campo obbligatorio!</p>
-            <p *ngIf="passwordWrong === true" style=" color: darkred; font-size: x-large"> Password è un campo obbligatorio!</p>
+            <!-- Prompt di errori riguardanti le credenziali 
+            <p *ngIf="usernameOrPasswordWrong === true"  style=" color: darkred; font-size: x-large" on> Username e Password errati!</p>
+            <p *ngIf="usernameNull === true" style=" color: darkred; font-size: x-large"> Username è un campo obbligatorio!</p>
+            <p *ngIf="passwordNull === true" style=" color: darkred; font-size: x-large"> Password è un campo obbligatorio!</p>-->
+            
             <!-- username input -->
-            <div div class="form-floating mb-3">                                        
+            <div div class="form-floating mb-3">
+              <!-- (click)="resetStates()" resetta le variabili dei messaggi di errore a false -->                                        
               <input 
+              id="username"
+              (click)="resetStates()"  
               [ngModel]              
               name="username"
-              type="username" class="form-control form-control-lg"  placeholder="name@example.com">
+              type="username" class="form-control form-control-lg"  placeholder="name@example.com" required>
               <label for="floatingInput">Username</label>
             </div>
   
             <!-- Password input -->
             <div class="form-floating mb-3">
               <input 
+              (click)="resetStates()"
               [ngModel]
               name="password"
-              type="password" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" >
+              type="password" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" required>
                <label for="floatingInput">Password</label>
-            </div>          
-
+            </div>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Accedi</button>   
+            <button disabled = "true" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" >Accedi</button>  
+            
+            <script>
+                const submitButton = document.getElementById("submit");
+                const input = document.getElementById("username");
+
+                input.addEventListener("keyup", (e) =>{
+                  const value = e.currentTarget.value;
+                  submitButton.disable = false;
+
+                  if(value === ""){
+                    submitButton.disable = true;
+                  }
+
+                });
+
+            </script>
           </form>
         </div>
       </div>
