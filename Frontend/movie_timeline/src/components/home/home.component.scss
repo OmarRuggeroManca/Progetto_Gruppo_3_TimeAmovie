@@ -1,6 +1,13 @@
-.container{
-    width: 1920px;
-    margin: 250px;
+#container{
+margin: 0 auto;
+width: 90%;
+text-align: center;
+padding:3%;
+position: absolute;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
 }
 
 .title{
