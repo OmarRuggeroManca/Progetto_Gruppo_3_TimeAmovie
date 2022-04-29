@@ -1,93 +1,101 @@
-<div class="container">
 
-  <div class="row ">
 
-    <div class="col-md-6" id="poster">
-      <div class="poster_container">
-        <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="70%" height="70%">
+  <div class="container">
+    <div class="row ">
+      <!--Locandina -->
+      <div class="col-md-6">
+        <div class="poster_container">
+          <img id="poster" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="90%" height="70%">
+        </div>
+      </div>
+
+      <!--Informazioni del film-->
+      <div class="col-md-6">
+        <div id="boxMovieData">
+          <div>
+            <!--Icona che viene mostrata se il film è fra i preferiti-->
+            <div id="starBox" *ngIf="isFavorite">
+              <fa-icon class="iconStar" [icon]="starIcon" size="lg"></fa-icon>
+            </div>
+            <h2>{{movie.title}}</h2>
+          </div>
+          <div>
+            <h4>{{movie.release_date}}</h4>
+          </div>
+          <div>
+            <i class="genres" *ngFor="let genres of movie?.genres; last as isLast"> {{genres.name}}<span
+                *ngIf="!isLast">,</span></i>
+          </div>
+          <div class="fieldsContainer">
+            <div class="director">
+              <span class="fieldName">Diretto da: </span>
+              <b *ngFor="let director of directors; last as isLast"> {{ director.name}}<span
+                  *ngIf="!isLast">,</span></b>
+            </div>
+            <div class="screenwriter">
+              <span class="fieldName">Scritto da: </span>
+              <b *ngFor="let writer of writers; last as isLast"> {{ writer.name}}<span *ngIf="!isLast">,</span></b>
+            </div>
+            <div class="dop">
+              <span class="fieldName">Direzione della fotografia: </span>
+              <b *ngFor="let dop of dops; last as isLast"> {{ dop.name}}<span *ngIf="!isLast">,</span></b>
+            </div>
+            <div class="production">
+              <span class="fieldName">Prodotto da: </span>
+              <b *ngFor="let producer of producers; last as isLast"> {{producer.name}}<span *ngIf="!isLast">,</span>
+              </b>
+            </div>
+          </div>
+          <hr>
+          <div *ngIf="isVisible">
+            <p> {{movie.overview}}</p>
+          </div>
+          <!--Tasto per aggiungere il film ai preferiti che viene mostrato solo se l'utente è loggato-->
+          <div>
+            <div id="buttonBox" *ngIf="isVisible && !isFavorite && isLogged">
+            <button id="primary-button" (click)="isVisible = !isVisible" 
+              type="button">Aggiungi ai
+              preferiti </button>
+            </div>
+          </div>
+
+          <!--Form per aggiungere il film ai preferiti che compare quando viene cliccato il tasto sopra-->
+          <div class="formContainer" *ngIf="!isVisible">
+            <form #movie="ngForm" (submit)="addFavoriteMovie(movie)">
+
+              <div id="starRating">
+                <div class="rating-group">
+                  <input disabled checked class="rating__input rating__input--none" name="movie_rating" id="movie_rating-none"
+                    value="0" type="radio">
+                  <label aria-label="1 star" class="rating__label" for="movie_rating-1"><i
+                      class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input [ngModel] class="rating__input" name="movie_rating" id="movie_rating-1" value="1" type="radio" required>
+                  <label aria-label="2 stars" class="rating__label" for="movie_rating-2"><i
+                      class="rating__icon rating__icon--star fa fa-star" ></i></label>
+                  <input [ngModel] class="rating__input" name="movie_rating" id="movie_rating-2" value="2" type="radio" required>
+                  <label aria-label="3 stars" class="rating__label" for="movie_rating-3"><i
+                      class="rating__icon rating__icon--star fa fa-star" ></i></label>
+                  <input [ngModel] class="rating__input" name="movie_rating" id="movie_rating-3" value="3" type="radio" required>
+                  <label aria-label="4 stars" class="rating__label" for="movie_rating-4"><i
+                      class="rating__icon rating__icon--star fa fa-star" ></i></label>
+                  <input [ngModel] class="rating__input" name="movie_rating" id="movie_rating-4" value="4" type="radio" required>
+                  <label aria-label="5 stars" class="rating__label" for="movie_rating-5"><i
+                      class="rating__icon rating__icon--star fa fa-star" ></i></label>
+                  <input [ngModel] class="rating__input" name="movie_rating" id="movie_rating-5" value="5" type="radio" required>
+                </div>
+              </div>
+
+              <textarea [ngModel] name="movie_comment" id="movie_comment" name="movie_comment" placeholder="Inserisci un commento!" cols="40" rows="4"
+                class="form-control" required></textarea>
+
+              <div id="buttonBox">
+                <button id="secondary-button" type="button" (click)="isVisible = !isVisible">Torna alla trama</button>
+                <button type="submit" id="primary-button" [disabled]="!movie.form.valid">Invia</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="col-md-6">
-      <div>
-        <fa-icon class="iconStar" [icon]="starIcon" size="lg" *ngIf="isFavorite"></fa-icon>
-        <h2>{{movie.title}}</h2>
-      </div>
-      <div>
-        <h3>{{movie.release_date}}</h3>
-      </div>
-
-      <div>
-        <i class="genres" *ngFor="let genres of movie?.genres; last as isLast"> {{genres.name}}<span
-            *ngIf="!isLast">,</span></i>
-      </div>
-
-      <div class="fieldsContainer">
-        <div class="director">
-          <b class="fieldName">Diretto da: </b>
-          <span *ngFor="let director of directors; last as isLast"> {{ director.name}}<span
-              *ngIf="!isLast">,</span></span>
-        </div>
-        <div class="screenwriter">
-          <b class="fieldName">Scritto da: </b>
-          <span *ngFor="let writer of writers; last as isLast"> {{ writer.name}}<span *ngIf="!isLast">,</span></span>
-        </div>
-        <div class="dop">
-          <b class="fieldName">Direzione della fotografia: </b>
-          <span *ngFor="let dop of dops; last as isLast"> {{ dop.name}}<span *ngIf="!isLast">,</span></span>
-        </div>
-        <div class="production">
-          <b class="fieldName">Prodotto da: </b>
-          <span *ngFor="let producer of producers; last as isLast"> {{producer.name}}<span *ngIf="!isLast">,</span>
-          </span>
-        </div>
-
-      </div>
-
-      <hr>
-
-      <div *ngIf="isVisible">
-        <p> {{movie.overview}}</p>
-      </div>
-
-
-      <div>
-        <button id="primary-button" (click)="isVisible = !isVisible" *ngIf="isVisible && !isFavorite"
-          type="button">Aggiungi ai
-          preferiti </button>
-      </div>
-
-
-
-
-      <div class="formContainer" *ngIf="!isVisible">
-
-        <form #movie="ngForm" (submit)="addFavoriteMovie(movie)">
-          <div class="form-group row">
-            <div class="col-8">              
-                <input type="range" id="vol" step="1" name="vol" min="1" max="5" [ngModel] name="movie_rating">           
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-4"></label>
-            <div class="col-8">
-              <textarea [ngModel] name="movie_comment" id="movie_comment" name="movie_comment" cols="40" rows="4"
-                class="form-control" required="required"></textarea>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="offset-4 col-8">
-              <button type="submit" id="primary-button">Invia</button>
-              <button id="secondary-button" type="button" (click)="isVisible = !isVisible">Torna alla trama</button>
-            </div>
-          </div>
-        </form>
-
-      </div>
-
-    </div>
-
   </div>
-</div>
-
-

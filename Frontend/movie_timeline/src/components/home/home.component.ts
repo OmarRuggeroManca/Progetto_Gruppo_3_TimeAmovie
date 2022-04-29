@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendAPIService } from 'src/services/backend-api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public backendAPIService: BackendAPIService) { }
 
   ngOnInit(): void {
   }

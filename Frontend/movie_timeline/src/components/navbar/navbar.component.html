@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" routerLink="/home">TIME A MOVIE</a>
+  <a class="navbar-brand" id="animation" routerLink="/home">TIME A MOVIE</a>
   <button #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse"
     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" (click)="isShown"
     [attr.aria-expanded]="isShown" aria-label="Toggle navigation">
@@ -16,10 +16,13 @@
         <a class="nav-link" id="animation" (click)="isShown = true"  routerLink="/list">I TUOI FILM</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/timeline">RANDOM</a>
+        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/random-timeline">RANDOM</a>
+      </li>
+      <li class="nav-item" *ngIf="backendAPIService.userLogged">
+        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/generate-timeline">TIMELINE! </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/">ABOUT</a>
+        <a class="nav-link" id="animation"(click)="isShown = true" routerLink="/about">ABOUT</a>
       </li>
     </ul>
   </div>

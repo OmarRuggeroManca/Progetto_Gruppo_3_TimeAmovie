@@ -17,6 +17,7 @@ import { MovieComment } from 'src/models/MovieComment';
 })
 export class MovieComponent implements OnInit {
 
+  //Variabili info movie
   movieId: number | null = null;
   movie: Partial<MovieData> = {};
   movieStaff: Partial<MovieStaff> = {};
@@ -24,15 +25,18 @@ export class MovieComponent implements OnInit {
   dops: Crew[] | undefined = [];
   writers: Crew[] | undefined = [];
   producers: Crew[] | undefined = [];
-  isVisible: boolean = true;
-  movieList: MovieFav[] = [];
-  isFavorite: boolean = false;
-  starIcon = faStar;
 
+  //Variabili DB
+  movieList: MovieFav[] = [];
   movieRating: MovieRating = {} as MovieRating;
   movieComment: MovieComment = {} as MovieComment;
   movieFav: MovieFav = {} as MovieFav
 
+  //Variabili per controlli html e icone
+  isVisible: boolean = true;
+  isFavorite: boolean = false;
+  isLogged = true;
+  starIcon = faStar;
 
   constructor(
     private apiMovieService: ApiMovieService,
@@ -115,6 +119,7 @@ export class MovieComponent implements OnInit {
       },
       error: () => console.log('Errore laravel')
     });
+    
   }
 
 }

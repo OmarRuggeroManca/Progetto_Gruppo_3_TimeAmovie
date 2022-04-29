@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         next: (res) =>{if(res!== null){ //Se abbiamo risposta positiva dal server res non è null
         this.backendAPIService.userLogged = true;         
         this.backendAPIService.userActive = res;
-        this.router.navigateByUrl(`/params`); //Il metodo rimanda direttamente alla pagina di filtraggio
+        this.router.navigateByUrl(`/generate-timeline`); //Il metodo rimanda direttamente alla pagina di filtraggio
         
       }},
       error: () => this.usernameOrPasswordWrong = true //Se le credenziali sono sbagliate

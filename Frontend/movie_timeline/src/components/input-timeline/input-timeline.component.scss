@@ -33,9 +33,10 @@ text {
     color: #FFF;
 }
 
-input::placeholder {
-    color: rgb(83, 83, 83);
-    font-weight: 400;
+.labelField{
+  color: rgb(255, 255, 255);
+    font-weight: 400;  
+    text-transform: uppercase;
 }
 
 #paramsForm{
@@ -52,7 +53,7 @@ input::placeholder {
 
 #contentForm{
     padding: 20px;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
     text-align: center;
 }

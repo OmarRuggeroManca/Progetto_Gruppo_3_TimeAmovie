@@ -4,12 +4,12 @@
         <h2 class="title">Inserisci i parametri per generare la tua timeline!</h2>
         <!-- name input-->
         <div class="field">
-                <input id="name"[ngModel] name="name" type="text" placeholder="Nome" class="form-control input-md">
+                <input id="name"[ngModel] name="name" type="text" placeholder="Nome" class="form-control input-md" required>
         </div>
 
         <!-- surname input-->
         <div class="field">
-            <input id="Surname" [ngModel] name="surname" type="text" placeholder="Cognome" class="form-control input-md">
+            <input id="Surname" [ngModel] name="surname" type="text" placeholder="Cognome" class="form-control input-md" required>
         </div>
 
         <!-- genre input-->
@@ -36,6 +36,6 @@
         </div>
 
     </div>
-    <button type="submit" id="primary-button">Genera Timeline!</button>
+    <button type="submit" id="primary-button" [disabled]="!paramsTimeline.form.valid">Genera Timeline!</button>
 </form>
 

@@ -1,11 +1,16 @@
 <div id="container">
-    <div id="content">
-    <h1 class="title">TIME A MOVIE</h1>
-    <p class="desc"> Scegli il tuo attore preferito e visualizza le timeline della sua carriera
-        cinematrografica! <br> Accedi per salvare i tuoi film preferiti. </p>
-    <button id="primary-button" type="button" routerLink="/params">Timeline!</button>
-    <span style="padding: 10px"></span>
-    <button id="secondary-button" type="button" routerLink="/login">Accedi</button>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="content">
+                <h1 class="title">TIME A MOVIE</h1>
+                <p class="desc"> Visualizza la timeline dei tuoi attori preferiti! <br> Accedi per filtrare le timeline
+                    e salvare i tuoi film preferiti. </p>
+                <button id="primary-button" type="button"
+                    [routerLink]="backendAPIService.userLogged ? '/generate-timeline' : '/random-timeline'">Timeline!</button>
+                <span style="padding: 10px"></span>
+                <button id="secondary-button" type="button" routerLink="/login"
+                    *ngIf="!backendAPIService.userLogged">Accedi</button>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-    

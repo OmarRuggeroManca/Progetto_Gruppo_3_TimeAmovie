@@ -2,30 +2,59 @@
 margin: 0 auto;
 width: 90%;
 text-align: center;
-padding:3%;
-position: absolute;
-top: 50%;
-left: 50%;
--ms-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
+padding:11% 0;
 }
 
 .title{
     font-weight: 900;
     color: #FFFFFF;
     font-size: 10rem;
-    line-height: 9rem;
+    font-size: 8vw;
 }
 
 .desc{
     font-weight: 400;
     color: #FFFFFF;
-    font-size: 1.4em;
+    font-size: 16px;
+    font-size: 1.4vw;
 }
 
+//Laptop
+@media only screen and (max-width: 992px){
+    .desc{
+        font-size: 1.9vw;
+    }
+}
 
-// @media only screen and (max-width: 760px){
-//     .title{
-//         font-size: 30px;
-//     }
-// }
+//Tablet
+@media only screen and (max-width: 768px){
+
+    #container{
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+        padding:25% 0;
+        }
+
+    .desc{
+        display: none;
+    }
+
+    .title{
+        font-size: 10vw;
+    }
+}
+
+//Mobile
+@media only screen and (max-width: 600px){
+
+    #container{
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+        padding:35% 0;
+        }
+    .title{
+        font-size: 10vw;
+    }
+}

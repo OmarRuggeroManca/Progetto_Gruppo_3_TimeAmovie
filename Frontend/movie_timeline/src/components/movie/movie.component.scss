@@ -1,3 +1,21 @@
+
+#boxMovieData{
+    border: 3px solid #e13822;
+    border-radius: 2px;
+    box-shadow: 7px 7px #e13822;
+    padding: 4%;
+}
+
+#poster{
+    border: 3px solid #e13822;
+    border-radius: 2px;
+    box-shadow: 7px 7px #e13822;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .row {
     color: #fff;
 }
@@ -6,12 +24,12 @@ h2 {
     font-weight: 700;
 }
 
-h3 {
+h4 {
     font-weight: 400;
 }
 
 .fieldsContainer {
-    margin-top: 2%;
+    margin-top: 1%;
     margin-bottom: 2%;
 }
 
@@ -23,6 +41,10 @@ h3 {
     color: rgb(180, 180, 180);
 }
 
+textarea{
+    resize: none;
+}
+
 .rate-popover {
     color: #e13822;
 }
@@ -31,14 +53,78 @@ h3 {
     color: rgb(255, 255, 255);
 }
 
+#buttonBox{
+    padding: 1rem 0;
+    text-align: right;
+}
+
+#secondary-button{
+    margin-right: 1.5rem;
+}
+
 #primary-button,
 #secondary-button {
     font-size: 16px;
-    margin-right: 20px;
 }
 
-.iconStar{
-   color: #e13822;
+.iconStar {
+    color: #e13822;
+}
+
+#starBox{
+    margin-bottom: 2%;
 }
 
 
+#starRating {
+
+    margin-bottom: 1%;
+  
+    /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+    .rating-group {
+      display: inline-flex;
+    }
+    
+    /* make hover effect work properly in IE */
+    .rating__icon {
+      pointer-events: none;
+    }
+    
+    /* hide radio inputs */
+    .rating__input {
+     position: absolute !important;
+     left: -9999px !important;
+    }
+    
+    /* hide 'none' input from screenreaders */
+    .rating__input--none {
+      display: none
+    }
+  
+    /* set icon padding and size */
+    .rating__label {
+      cursor: pointer;
+      padding: 0 0.1em;
+      font-size: 1.5rem;
+    }
+    
+    /* set default star color */
+    .rating__icon--star {
+        color: #e13822;
+    }
+  
+    /* if any input is checked, make its following siblings grey */
+    .rating__input:checked ~ .rating__label .rating__icon--star {
+      color: rgb(123, 123, 123);
+    }
+    
+    /* make all stars orange on rating group hover */
+    .rating-group:hover .rating__label .rating__icon--star {
+      color: #e13822;
+    }
+  
+    /* make hovered input's following siblings grey on hover */
+    .rating__input:hover ~ .rating__label .rating__icon--star {
+      color: #FFF;
+    }
+  }

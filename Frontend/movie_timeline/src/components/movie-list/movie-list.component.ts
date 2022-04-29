@@ -20,7 +20,6 @@ export class MovieListComponent implements OnInit {
   movieList: MovieData[] = [];
   filteredMovieList: MovieData[] = [];
   filter: string = '';
-  //ratingToDelete: MovieRatingGetForDelete = {} as MovieRatingGetForDelete;
 
   //Icone
   searchIcon = faSearch;
@@ -70,9 +69,13 @@ export class MovieListComponent implements OnInit {
           },
           error: () => console.log("Errore .Net")
         })
+        this.filteredMovieList = [];
+        this.getList();
       },
       error: () => console.log("Errore Node")
     });
+
+    
   }
 
 

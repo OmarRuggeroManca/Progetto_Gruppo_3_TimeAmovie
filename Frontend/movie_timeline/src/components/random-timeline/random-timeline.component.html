@@ -1,0 +1,26 @@
+
+
+<div id="actorTimeline">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="boxActorInfo">
+                <h1 class="card-title" style="color: rgb(255, 255, 255);">{{ actorDataSample.name?.toUpperCase() }}</h1>
+                <img src="https://image.tmdb.org/t/p/original{{actorDataSample.profile_path}}" width="70%">
+                <div class="infoTimeline"></div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body" id="boxTimeline">
+                <div id="content">
+                    <ul class="timeline">
+                        <li *ngFor="let actorMovie of orderedMoviesSample" class="event"
+                            attr.value={{actorMovie.release_date?.substring(0,4)}}
+                            (click)="onMovieClick(actorMovie.id)">
+                            <h3><a>{{ actorMovie.title }}</a></h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

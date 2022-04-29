@@ -4,8 +4,7 @@ import { ActorData, Cast } from 'src/models/ActorData';
 import { ApiMovieService } from 'src/services/api-movie.service';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
-import { ActorInfo, Result } from 'src/models/ActorInfo';
-
+import { ActorInfo } from 'src/models/ActorInfo';
 
 
 @Component({
@@ -14,11 +13,6 @@ import { ActorInfo, Result } from 'src/models/ActorInfo';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent implements OnInit {
-
-  //Variabili Timeline dimostrativa
-  actorDataSample: Partial<ActorData> = {};
-  orderedMoviesSample: Cast[] | undefined = [];
-  actorSample: number | null = 500;
 
   //Variabili Timeline generata dall'utente
   actorInfo: Partial<ActorInfo> = {};
@@ -29,24 +23,16 @@ export class TimelineComponent implements OnInit {
   //Icone
   downloadIcon = faFileArrowDown;
 
-  //timelinePDF
-  timelinePDF : boolean = false;
+  //Controllo per le timeline
+  timelineUserIsVisible: boolean = true;
+  timelinePDFisVisible: boolean = false;
 
-
-  //download PDF Davide
-
-  // downloadPDF(){
-  //   const doc = new jsPDF();
-  //   doc.html(this.timelinePDF,{  //non funziona
-  //     callback:(pdf)=>{
-  //       doc.save('timeline.pdf');
-  //     }
-  //   })
-   
-  // }
- 
   constructor(public apiMovieService: ApiMovieService,
     private router: Router) { }
+
+  ngOnInit(): void {
+    this.getUserTimeline();
+  }
 
   //DA RIVEDERE
   @ViewChild('timelinepdf', { static: false }) el!: ElementRef;
@@ -59,20 +45,17 @@ export class TimelineComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.getUserTimeline();
-  }
+  //download PDF Davide
 
-  //Creazione della timeline d'esempio con tutti i film di un attore
-  getSampleTimeline() {
-    this.apiMovieService.getMoviesByActorId(this.actorSample).subscribe({
-      next: (res) => {
-        this.actorDataSample = res;
-        this.orderedMoviesSample = this.actorDataSample.credits?.cast.filter(x => x.release_date !== undefined && x.release_date != "");
-        this.descendingOrder(this.orderedMoviesSample);
-      }
-    })
-  }
+  // downloadPDF(){
+  //   const doc = new jsPDF();
+  //   doc.html(this.timelinePDF,{  //non funziona
+  //     callback:(pdf)=>{
+  //       doc.save('timeline.pdf');
+  //     }
+  //   })
+
+  // }
 
   //Creazione timeline generata dall'utente
   getUserTimeline() {
@@ -119,16 +102,16 @@ export class TimelineComponent implements OnInit {
         this.apiMovieService.getMovieById(movie.id).subscribe({
           next: (res) => {
             //Controllo che fra i generi del film sia presente quello inserito dall'utente
-            for (let i = 0; i<res.genres.length; i++){
+            for (let i = 0; i < res.genres.length; i++) {
               if (res.genres[i].name.toLowerCase() === this.apiMovieService.paramsTimeline.genre) {
-                    //Se è presente setto la variabile di controllo a true ed esco dal ciclo
-                    genreIsPresent = true;
-                    break;
-                  }
-                  else{
-                    //Altimenti setto la variabile a false e continuo a cercare sino all'ultimo elemento
-                    genreIsPresent = false;
-                  }
+                //Se è presente setto la variabile di controllo a true ed esco dal ciclo
+                genreIsPresent = true;
+                break;
+              }
+              else {
+                //Altimenti setto la variabile a false e continuo a cercare sino all'ultimo elemento
+                genreIsPresent = false;
+              }
             }
             //Se non è presente il genere nel film lo cancello dall'array dei movie passato come parametro
             if (genreIsPresent === false) {

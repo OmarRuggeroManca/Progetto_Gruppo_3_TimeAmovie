@@ -12,6 +12,9 @@ import { HomeComponent } from '../components/home/home.component';
 import { MovieListComponent } from '../components/movie-list/movie-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { InputTimelineComponent } from '../components/input-timeline/input-timeline.component';
+import { AboutComponent } from '../components/about/about.component';
+import { RatingComponent } from '../components/rating/rating.component';
+import { RandomTimelineComponent } from '../components/random-timeline/random-timeline.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { InputTimelineComponent } from '../components/input-timeline/input-timel
     TimelineComponent,
     HomeComponent,
     MovieListComponent,
-    InputTimelineComponent
+    InputTimelineComponent,
+    AboutComponent,
+    RatingComponent,
+    RandomTimelineComponent
   ],
   imports: [
     BrowserModule,

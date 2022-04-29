@@ -14,7 +14,7 @@ export class BackendAPIService {
 
   constructor(private httpClient: HttpClient) { }
 
-  userLogged: boolean = false; 
+  userLogged: boolean = true; 
   userActive: User = {} as User;
   
 // Laravel  
