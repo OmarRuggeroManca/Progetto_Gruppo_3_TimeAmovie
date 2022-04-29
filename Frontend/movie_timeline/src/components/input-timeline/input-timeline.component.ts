@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -43,7 +42,7 @@ export class InputTimelineComponent implements OnInit {
     this.apiMovieService.paramsTimeline.budgetMax = null
 
     if(paramsTimeline.value.yearMax !== "" && paramsTimeline.value.yearMax !== null){
-      this.apiMovieService.paramsTimeline.yearMax = paramsTimeline.value.yearMax.toLowerCase();
+      this.apiMovieService.paramsTimeline.yearMax = paramsTimeline.value.yearMax.toLowerCase() + '-12-31';
     }
     else
     this.apiMovieService.paramsTimeline.yearMax = null

@@ -1,51 +1,41 @@
-<form class="form-horizontal" #paramsTimeline="ngForm" (submit)="generateTimeline(paramsTimeline)">
-    <fieldset>
+<form class="form-horizontal" id="paramsForm" #paramsTimeline="ngForm" (submit)="generateTimeline(paramsTimeline)">
+    <div id="contentForm">
 
+        <h2 class="title">Inserisci i parametri per generare la tua timeline!</h2>
         <!-- name input-->
-        <div class="form-group">
-            <div class="col-md-4">
+        <div class="field">
                 <input id="name"[ngModel] name="name" type="text" placeholder="Nome" class="form-control input-md">
-            </div>
         </div>
 
         <!-- surname input-->
-        <div class="form-group">
-            <div class="col-md-4">
-                <input id="Surname" [ngModel] name="surname" type="text" placeholder="Cognome" class="form-control input-md">
-            </div>
+        <div class="field">
+            <input id="Surname" [ngModel] name="surname" type="text" placeholder="Cognome" class="form-control input-md">
         </div>
 
         <!-- genre input-->
-        <div class="form-group">
-            <div class="col-md-4">
+        <div class="field">
                 <input id="genre" [ngModel] name="genre" type="text" placeholder="Genere" class="form-control input-md">
-            </div>
         </div>
 
         <!-- runtime input-->
-        <div class="form-group">
-            <div class="col-md-4">
+        <div class="field">
                 <input id="runtimeMax" [ngModel] name="runtimeMax" type="text" placeholder="Durata massima (min)"
                     class="form-control input-md">
-            </div>
         </div>
 
         <!-- budget input-->
-        <div class="form-group">
-            <div class="col-md-4">
+        <div class="field">
                 <input id="budgetMax" [ngModel] name="budgetMax" type="text" placeholder="Budget massimo"
                     class="form-control input-md">
-            </div>
         </div>
 
         <!-- year input-->
-        <div class="form-group">
-            <div class="col-md-4">
+        <div class="field">
                 <input id="yearMax" [ngModel] name="yearMax" type="text" placeholder="Fino all'anno?"
                     class="form-control input-md">
-            </div>
         </div>
 
-    </fieldset>
+    </div>
     <button type="submit" id="primary-button">Genera Timeline!</button>
 </form>
+

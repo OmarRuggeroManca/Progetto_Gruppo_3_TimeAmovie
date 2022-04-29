@@ -5,7 +5,7 @@ import { ApiMovieService } from 'src/services/api-movie.service';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import jsPDF from 'jspdf';
 import { ActorInfo, Result } from 'src/models/ActorInfo';
-import { MovieData } from 'src/models/MovieData';
+
 
 
 @Component({
@@ -93,7 +93,6 @@ export class TimelineComponent implements OnInit {
     })
   }
 
-  //BUG: VALE SOLO PER I FILM CHE HANNO IL GENERE CERCATO INDICATO COME ULTIMO
   filterGenre(movies: Cast[] | undefined) {
     //Variabile di controllo per la presenza del genere
     let genreIsPresent: Boolean = false;
@@ -104,18 +103,19 @@ export class TimelineComponent implements OnInit {
         //Per ogni film recupero i dati specifici dello stesso
         this.apiMovieService.getMovieById(movie.id).subscribe({
           next: (res) => {
-            //Controllo che fra i generi sia presente quello inserito dall'utente
-            res.genres.forEach(genre => {
-              if (genre.name.toLowerCase() === this.apiMovieService.paramsTimeline.genre?.toLowerCase()) {
-                //Se è presente setto la variabile di controllo a true
-                genreIsPresent = true;
-              }
-              else{
-                //Altimenti setto la variabile a false
-                genreIsPresent = false;
-              }
-            })
-            //Se non è presente il genere nel film lo cancelli dall'array dei movie passato come parametro
+            //Controllo che fra i generi del film sia presente quello inserito dall'utente
+            for (let i = 0; i<res.genres.length; i++){
+              if (res.genres[i].name.toLowerCase() === this.apiMovieService.paramsTimeline.genre) {
+                    //Se è presente setto la variabile di controllo a true ed esco dal ciclo
+                    genreIsPresent = true;
+                    break;
+                  }
+                  else{
+                    //Altimenti setto la variabile a false e continuo a cercare sino all'ultimo elemento
+                    genreIsPresent = false;
+                  }
+            }
+            //Se non è presente il genere nel film lo cancello dall'array dei movie passato come parametro
             if (genreIsPresent === false) {
               movies?.forEach(function (item, index) {
                 if (item.id === movie.id) {
