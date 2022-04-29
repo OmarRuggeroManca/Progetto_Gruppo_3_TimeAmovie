@@ -29,7 +29,22 @@ export class TimelineComponent implements OnInit {
   //Icone
   downloadIcon = faFileArrowDown;
 
+  //timelinePDF
+  timelinePDF : boolean = false;
 
+
+  //download PDF Davide
+
+  // downloadPDF(){
+  //   const doc = new jsPDF();
+  //   doc.html(this.timelinePDF,{  //non funziona
+  //     callback:(pdf)=>{
+  //       doc.save('timeline.pdf');
+  //     }
+  //   })
+   
+  // }
+ 
   constructor(public apiMovieService: ApiMovieService,
     private router: Router) { }
 
