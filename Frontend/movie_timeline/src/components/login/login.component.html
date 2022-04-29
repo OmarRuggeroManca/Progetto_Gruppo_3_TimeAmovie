@@ -8,12 +8,14 @@
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
           
           <form #user="ngForm" (submit)="login(user)">
-
-            <p *ngIf="usernameOrPasswordWrong === true" style=" color: darkred; font-size: x-large"> Username o Password errati!</p>
+            <!-- Prompt di errori riguardanti le credenziali -->
+            <p *ngIf="usernameOrPasswordWrong === true" style=" color: darkred; font-size: x-large"> Username e Password errati!</p>
+            <p *ngIf="usernameWrong === true" style=" color: darkred; font-size: x-large"> Username è un campo obbligatorio!</p>
+            <p *ngIf="passwordWrong === true" style=" color: darkred; font-size: x-large"> Password è un campo obbligatorio!</p>
             <!-- username input -->
-            <div div class="form-floating mb-3">              
+            <div div class="form-floating mb-3">                                        
               <input 
-              [ngModel]
+              [ngModel]              
               name="username"
               type="username" class="form-control form-control-lg"  placeholder="name@example.com">
               <label for="floatingInput">Username</label>
