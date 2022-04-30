@@ -30,12 +30,12 @@ namespace CommentsApp.RestAPI.Controllers
 
         [EnableCors("MyPolicy")]
         [HttpGet]
-        [Route("{comment-id}")]
-        public ActionResult<CommentDTO> GetCommentById([FromRoute(Name = "comment-id")] int commentId)
+        [Route("{user-id}/{movie-id}")]
+        public ActionResult<CommentDTO> GetCommentById([FromRoute(Name = "user-id")] int userId, [FromRoute(Name = "movie-id")] int movieId)
         {
             try
             {
-                var comment = _applicationService.GetCommentById(commentId);
+                var comment = _applicationService.GetCommentById(userId, movieId);
                 return Ok(CommentMapper.From(comment));
             }
             catch (CommentNotFoundException ex)
@@ -90,9 +90,9 @@ namespace CommentsApp.RestAPI.Controllers
 
         [EnableCors("MyPolicy")]
         [HttpPut]
-        [Route("{comment-id}")]
+        [Route("{user-id}/{movie-id}")]
         public ActionResult<CommentDTO> UpdateComment(
-            [FromRoute(Name = "comment-id")] int commentId, 
+            [FromRoute(Name = "user-id")] int userId, [FromRoute(Name = "movie-id")] int movieId, 
             [FromBody] CommentCreationParameters commentWithUpdatedProperties)
         {
             try
@@ -101,7 +101,7 @@ namespace CommentsApp.RestAPI.Controllers
                     commentWithUpdatedProperties.UserId, 
                     commentWithUpdatedProperties.MovieId, 
                     commentWithUpdatedProperties.MovieComment);
-                var updatedComment = _applicationService.UpdateComment(commentId, commentToUpdate);
+                var updatedComment = _applicationService.UpdateComment(userId, movieId, commentToUpdate);
                 return Ok(CommentMapper.From(updatedComment));
             }
             catch (InvalidCommentNumberCharactersException ex)

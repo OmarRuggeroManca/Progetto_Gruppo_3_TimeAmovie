@@ -30,24 +30,24 @@ namespace CommentsApp.Core.Service
             return _storageServiceComment.CreateComment(userId, movieId, movieComment);
         }
         public List<Comment> GetAllComments() => _storageServiceComment.GetAllComments();
-        public Comment GetCommentById(int commentId) 
+        public Comment GetCommentById(int userId, int movieId) 
         {
-            var comment = _storageServiceComment.GetCommentById(commentId);
+            var comment = _storageServiceComment.GetCommentById(userId, movieId);
             if (comment != null)
             {
                 return comment;
             }
             throw new CommentNotFoundException();
         }
-        public Comment UpdateComment(int commentId, Comment commentWithUpdatedProperties)
+        public Comment UpdateComment (int userId, int movieId, Comment commentWithUpdatedProperties)
         {
-            var comment = _storageServiceComment.GetCommentById(commentId);
+            var comment = _storageServiceComment.GetCommentById(userId, movieId);
             /// If the comment isn't null and has less than 160 characters, it will be updated, 
             /// otherwise a CommentNotFoundException is triggered.
             if (comment != null)
             {
                 CheckMinCharacters(commentWithUpdatedProperties.MovieComment);
-                return _storageServiceComment.UpdateComment(commentId, commentWithUpdatedProperties);
+                return _storageServiceComment.UpdateComment(userId, movieId, commentWithUpdatedProperties);
             }
             throw new CommentNotFoundException();
         }

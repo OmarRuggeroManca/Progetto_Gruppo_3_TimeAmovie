@@ -37,9 +37,9 @@ namespace CommentsApp.DB.Service
             return commentList.Select(comment => DbCommentMapper.From(comment)).ToList();
         }
 
-        public Comment? GetCommentById(int commentId)
+        public Comment? GetCommentById(int userId, int movieId)
         {
-            var comment = _context.Comments.Find(commentId);
+            var comment = _context.Comments.FirstOrDefault(c => c.UserId == userId && c.MovieId == movieId);
             if (comment != null)
             {
                 return DbCommentMapper.From(comment);
@@ -47,9 +47,9 @@ namespace CommentsApp.DB.Service
             return null;
         }
 
-        public Comment UpdateComment(int commentId, Comment commentWithUpdatedProperties)
+        public Comment UpdateComment(int userId, int movieId, Comment commentWithUpdatedProperties)
         {
-            var commentToUpdate = _context.Comments.Find(commentId);
+            var commentToUpdate = _context.Comments.FirstOrDefault(c => c.UserId == userId && c.MovieId == movieId);
             if (commentToUpdate != null)
             {
                 commentToUpdate.UserId = commentWithUpdatedProperties.UserId;
