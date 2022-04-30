@@ -2,7 +2,7 @@ import { Component, OnInit, Pipe } from '@angular/core';
 import { ApiMovieService } from '../../services/api-movie.service';
 import { MovieData } from '../../models/MovieData';
 import { Crew, MovieStaff } from 'src/models/MovieStaff';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { BackendAPIService } from 'src/services/backend-api.service';
 import { MovieFav } from 'src/models/MovieFav';
@@ -35,13 +35,14 @@ export class MovieComponent implements OnInit {
   //Variabili per controlli html e icone
   isVisible: boolean = true;
   isFavorite: boolean = false;
-  isLogged = true;
+  isLogged = this.backendAPIService.userLogged;
   starIcon = faStar;
 
   constructor(
     private apiMovieService: ApiMovieService,
     activatedRoute: ActivatedRoute,
-    public backendAPIService: BackendAPIService) {
+    public backendAPIService: BackendAPIService,
+    private router: Router) {
     activatedRoute.params.subscribe(val => {
       this.movieId = val['movieId'];
     });
@@ -106,11 +107,14 @@ export class MovieComponent implements OnInit {
     }
 
     this.backendAPIService.postValutazione(this.movieRating).subscribe({
-      next: (res) => {
+      next: () => {
         console.log("Valutazione aggiunta"); this.backendAPIService.postCommento(this.movieComment).subscribe({
-          next: (res2) => {
+          next: () => {
             console.log("Commento aggiunto"); this.backendAPIService.postFilmPreferito(this.movieFav).subscribe({
-              next: (res3) => { console.log("Film aggiunto") },
+              next: () => { 
+                console.log("Film aggiunto"); 
+                //Ricarica la route per visualizzare il film aggiunto ai preferiti
+                this.reloadCurrentRoute(); },
               error: () => console.log('Errore node')
             })
           },
@@ -119,7 +123,15 @@ export class MovieComponent implements OnInit {
       },
       error: () => console.log('Errore laravel')
     });
-    
+
+  }
+
+  //Ricarica la route attuale
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 
 }

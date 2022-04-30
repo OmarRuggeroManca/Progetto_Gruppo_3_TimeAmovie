@@ -86,7 +86,7 @@
               </div>
 
               <textarea [ngModel] name="movie_comment" id="movie_comment" name="movie_comment" placeholder="Inserisci un commento!" cols="40" rows="4"
-                class="form-control" required></textarea>
+                class="form-control" maxlength = "160" required></textarea>
 
               <div id="buttonBox">
                 <button id="secondary-button" type="button" (click)="isVisible = !isVisible">Torna alla trama</button>

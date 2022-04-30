@@ -4,9 +4,10 @@
 </div> -->
 <div class="container">
     <div class="row">
-        <h2 class="user">Ciao {{user}}, ecco la lista dei tuoi film preferiti:</h2>
+        <h2 class="user" *ngIf="!atLeastOneFilm">Ciao {{user}}, non hai ancora salvato nessun film come preferito!</h2>
+        <h2 class="user" *ngIf="atLeastOneFilm">Ciao {{user}}, ecco la lista dei tuoi film preferiti:</h2>
         <div class="col-md-4">
-            <div class="input-group rounded" style="width: 330px;">
+            <div class="input-group rounded" style="width: 330px;" *ngIf="atLeastOneFilm">
                 <input [(ngModel)]="filter" (ngModelChange)="applyFilter($event)" type="search"
                     class="form-control rounded  " placeholder="Cerca nella lista" aria-label="Search"
                     aria-describedby="search-addon" />
@@ -16,15 +17,29 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="movieItem" *ngFor="let movie of filteredMovieList" >
-                <h2 class="title" (click)="onMovieClick(movie.id)">{{movie.title}}</h2>
-                
-                <div id="" *ngFor="let rating of ratingsMovieList.Ratings?.data">
-                    <p id="ratings" *ngIf="rating.movie_id === movie.id"> {{rating.movie_rating}} </p>
+            <!--Recupero l'id del film-->
+            <div class="movieItem" *ngFor="let movie of filteredMovieList">
+                <h2 id="title" (click)="onMovieClick(movie.id)">{{movie.title}}</h2>
+
+                <!--Recupero i rating e mostro le stelle corrispondenti al valore recueperato-->
+                <div id="stars" *ngFor="let rating of ratingsMovieList.Ratings?.data">
+                    <div id="" *ngIf="rating.movie_id === movie.id">
+                        <fa-icon class="starIcon" [icon]="starIcon" *ngIf="rating.movie_rating >= 1" size="sm">
+                        </fa-icon>
+                        <fa-icon class="starIcon" [icon]="starIcon" *ngIf="rating.movie_rating >= 2" size="sm">
+                        </fa-icon>
+                        <fa-icon class="starIcon" [icon]="starIcon" *ngIf="rating.movie_rating >= 3" size="sm">
+                        </fa-icon>
+                        <fa-icon class="starIcon" [icon]="starIcon" *ngIf="rating.movie_rating >= 4" size="sm">
+                        </fa-icon>
+                        <fa-icon class="starIcon" [icon]="starIcon" *ngIf="rating.movie_rating === 5" size="sm">
+                        </fa-icon>
+                    </div>
                 </div>
 
+                <!--Recupero il commento-->
                 <div id="" *ngFor="let comment of commentsMovieList">
-                    <p id="comment" *ngIf="comment.movieId === movie.id"> {{comment.movieComment}} </p>
+                    <p id="comment" *ngIf="comment.movieId === movie.id"><b>Commento:</b> {{comment.movieComment}} </p>
                 </div>
 
                 <fa-icon class="iconTrash" [icon]="trashIcon" size="lg" (click)="deleteFavMovie(movie.id)"></fa-icon>

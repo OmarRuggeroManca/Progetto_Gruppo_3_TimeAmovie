@@ -1,57 +1,28 @@
-<section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="row d-flex align-items-center justify-content-center h-100">
-        <div class="col-md-8 col-lg-7 col-xl-6">
-        </div>
-        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-          
-          <form #user="ngForm" (submit)="login(user)">
-            <!-- Prompt di errori riguardanti le credenziali 
-            <p *ngIf="usernameOrPasswordWrong === true"  style=" color: darkred; font-size: x-large" on> Username e Password errati!</p>
-            <p *ngIf="usernameNull === true" style=" color: darkred; font-size: x-large"> Username è un campo obbligatorio!</p>
-            <p *ngIf="passwordNull === true" style=" color: darkred; font-size: x-large"> Password è un campo obbligatorio!</p>-->
-            
-            <!-- username input -->
-            <div div class="form-floating mb-3">
-              <!-- (click)="resetStates()" resetta le variabili dei messaggi di errore a false -->                                        
-              <input 
-              id="username"
-              (click)="resetStates()"  
-              [ngModel]              
-              name="username"
-              type="username" class="form-control form-control-lg"  placeholder="name@example.com" required>
-              <label for="floatingInput">Username</label>
-            </div>
-  
-            <!-- Password input -->
-            <div class="form-floating mb-3">
-              <input 
-              (click)="resetStates()"
-              [ngModel]
-              name="password"
-              type="password" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" required>
-               <label for="floatingInput">Password</label>
-            </div>
-            <!-- Submit button -->
-            <button [disabled]="!user.form.valid" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" >Accedi</button>  
-            
-            <!-- <script>
-                const submitButton = document.getElementById("submit");
-                const input = document.getElementById("username");
 
-                input.addEventListener("keyup", (e) =>{
-                  const value = e.currentTarget.value;
-                  submitButton.disable = false;
+<form class="form-horizontal" id="userForm" #user="ngForm" (submit)="login(user)">
+  <div id="contentForm">
 
-                  if(value === ""){
-                    submitButton.disable = true;
-                  }
+    <div div class="form-floating mb-3">
 
-                });
+      <!-- Prompt di errori riguardanti le credenziali 
+        <p *ngIf="usernameOrPasswordWrong === true"  style=" color: darkred; font-size: x-large" on> Username e Password errati!</p>
+        <p *ngIf="usernameNull === true" style=" color: darkred; font-size: x-large"> Username è un campo obbligatorio!</p>
+        <p *ngIf="passwordNull === true" style=" color: darkred; font-size: x-large"> Password è un campo obbligatorio!</p>-->
+      <!-- (click)="resetStates()" resetta le variabili dei messaggi di errore a false -->
 
-            </script> -->
-          </form>
-        </div>
-      </div>
+      <!-- username input -->
+      <input id="username" (click)="resetStates()" [ngModel] name="username" type="username"
+        class="form-control form-control-lg" placeholder="name@example.com" required>
+      <label class="label" for="floatingInput">Username</label>
     </div>
-  </section>
+
+    <!-- Password input -->
+    <div class="form-floating mb-3">
+      <input (click)="resetStates()" [ngModel] name="password" type="password" class="form-control form-control-lg"
+        id="floatingInput" placeholder="name@example.com" required>
+      <label class="label" for="floatingInput">Password</label>
+    </div>
+
+  </div>
+  <button type="submit" id="primary-button" [disabled]="!user.form.valid">Accedi</button>
+</form>

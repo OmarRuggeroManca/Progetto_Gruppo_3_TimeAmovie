@@ -6,7 +6,7 @@ input {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
 }
 
 input:focus{
@@ -34,7 +34,7 @@ text {
 }
 
 .labelField{
-  color: rgb(255, 255, 255);
+  color: rgb(236, 236, 236);
     font-weight: 400;  
     text-transform: uppercase;
 }
@@ -65,4 +65,3 @@ text {
     margin-bottom: 5%;
     color: #FFF;
 }
-

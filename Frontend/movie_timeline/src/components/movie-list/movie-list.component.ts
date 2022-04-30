@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ApiMovieService } from 'src/services/api-movie.service';
 import { BackendAPIService } from 'src/services/backend-api.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { MovieFav } from 'src/models/MovieFav';
 import { MovieData } from 'src/models/MovieData';
-import { MovieRating } from 'src/models/MovieRating';
-import { MovieComment } from 'src/models/MovieComment';
 import { MovieRatingsList } from 'src/models/MovieRatingsList';
 import { MovieCommentForList } from 'src/models/MovieCommentForList';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -18,17 +18,25 @@ import { MovieCommentForList } from 'src/models/MovieCommentForList';
 })
 export class MovieListComponent implements OnInit {
 
+  //Username utente
   user: string = this.backendAPIService.userActive.username;
+  
+  //Film
   movieIdList: MovieFav[] = [];
   movieList: MovieData[] = [];
   filteredMovieList: MovieData[] = [];
-  ratingsMovieList: Partial<MovieRatingsList> = {};
-  commentsMovieList: MovieCommentForList[] = [];
+  atLeastOneFilm: boolean = false;
   filter: string = '';
 
+  //Rating e commenti
+  ratingsMovieList: Partial<MovieRatingsList> = {};
+  commentsMovieList: MovieCommentForList[] = [];
+  
   //Icone
   searchIcon = faSearch;
   trashIcon = faTrashAlt;
+  starIcon = faStar;
+  
 
   constructor(
     private apiMovieService: ApiMovieService,
@@ -44,6 +52,8 @@ export class MovieListComponent implements OnInit {
     //Recupero la lista dei film preferiti dell'utente attivo
     this.backendAPIService.getListaPreferiti().subscribe({
       next: (movieList) => {
+        if(movieList.length === 0){this.atLeastOneFilm = false}
+        else{this.atLeastOneFilm = true}
         this.movieIdList = movieList;
         for (let i = 0; i < this.movieIdList.length; i++) {
           //Per ogni movieId recupero le sue informazioni
@@ -93,14 +103,10 @@ export class MovieListComponent implements OnInit {
       },
       error: () => console.log("Errore Node")
     });
-
-
   }
-
 
   applyFilter(event: String) {
     this.filteredMovieList = this.movieList.filter(x => x.title.toLowerCase().includes(`${event.toLowerCase()}`))
   }
-
 
 }

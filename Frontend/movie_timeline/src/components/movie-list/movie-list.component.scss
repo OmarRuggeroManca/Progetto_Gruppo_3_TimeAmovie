@@ -25,7 +25,6 @@
     border-radius: 5px;
     left: -163px;
     color: #FFFFFF;
-    font-weight: 600;
     font-size: 1.1em;
     min-width: 90px;
     transition: box-shadow 300ms;
@@ -34,12 +33,21 @@
 .movieItem:hover {
     box-shadow: 4px 4px #e13822; 
     background-color: #FFF;
-    cursor: pointer;   
     color: #0E0E10;
 }
 
+.movieItem:hover {
+    box-shadow: 4px 4px #e13822; 
+    background-color: #FFF;
+    color: #0E0E10;
+}
 
-.title{
+.movieItem:hover #comment{
+    color: #0E0E10;
+}
+
+#title{
+    margin: 0;
    font-size: 24px;
    font-weight: 700; 
 }
@@ -50,12 +58,18 @@
     left: 95%;
 }
 
-.comment, .ratings{
+#comment, #ratings{
     font-size: 16px;
     font-weight: 400; 
     color: #FFF;
+    margin:0 auto;
  }
 
- .title:hover{
+ #stars{
     color: #e13822;
+ }
+
+ #title:hover{
+    color: #e13822;
+    cursor: pointer;   
   }

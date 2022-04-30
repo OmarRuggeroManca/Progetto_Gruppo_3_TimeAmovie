@@ -1,15 +1,15 @@
 <form class="form-horizontal" id="paramsForm" #paramsTimeline="ngForm" (submit)="generateTimeline(paramsTimeline)">
     <div id="contentForm">
 
-        <h2 class="title">Inserisci i parametri per generare la tua timeline!</h2>
+        <h2 class="title">Inserisci i parametri per generare la tua timeline</h2>
         <!-- name input-->
         <div class="field">
-                <input id="name"[ngModel] name="name" type="text" placeholder="Nome" class="form-control input-md" required>
+                <input id="name"[ngModel] name="name" type="text" placeholder="Nome (richiesto)" class="form-control input-md" required>
         </div>
 
         <!-- surname input-->
         <div class="field">
-            <input id="Surname" [ngModel] name="surname" type="text" placeholder="Cognome" class="form-control input-md" required>
+            <input id="Surname" [ngModel] name="surname" type="text" placeholder="Cognome (richiesto)" class="form-control input-md" required>
         </div>
 
         <!-- genre input-->

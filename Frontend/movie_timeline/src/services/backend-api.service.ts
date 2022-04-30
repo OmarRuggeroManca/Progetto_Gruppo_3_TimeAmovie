@@ -18,7 +18,7 @@ export class BackendAPIService {
 
   userLogged: boolean = false; 
   userActive: User = {} as User;
-  
+
 // Laravel  
 getValutazione(movie_id: number | null, user_id: number | null){
   return this.httpClient.get<MovieRatingsList>(`http://localhost:8000/api/confront/${movie_id}/${user_id}`);
