@@ -37,6 +37,12 @@ namespace CommentsApp.DB.Service
             return commentList.Select(comment => DbCommentMapper.From(comment)).ToList();
         }
 
+        public List<Comment> GetAllCommentsByUserID(int userId) 
+        {
+            var commentList = _context.Comments.Where(c => c.UserId == userId).ToList();
+            return commentList.Select(comment => DbCommentMapper.From(comment)).ToList();
+        }
+
         public Comment? GetCommentById(int userId, int movieId)
         {
             var comment = _context.Comments.FirstOrDefault(c => c.UserId == userId && c.MovieId == movieId);

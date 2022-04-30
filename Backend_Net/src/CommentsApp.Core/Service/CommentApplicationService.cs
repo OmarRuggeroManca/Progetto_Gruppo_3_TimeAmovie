@@ -30,6 +30,9 @@ namespace CommentsApp.Core.Service
             return _storageServiceComment.CreateComment(userId, movieId, movieComment);
         }
         public List<Comment> GetAllComments() => _storageServiceComment.GetAllComments();
+
+        public List<Comment> GetAllCommentsByUserID(int userId) => _storageServiceComment.GetAllCommentsByUserID(userId);
+
         public Comment GetCommentById(int userId, int movieId) 
         {
             var comment = _storageServiceComment.GetCommentById(userId, movieId);

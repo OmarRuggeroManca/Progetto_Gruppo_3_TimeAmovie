@@ -6,7 +6,8 @@ import { MovieComment } from 'src/models/MovieComment';
 import { MovieFav } from 'src/models/MovieFav';
 import { MovieRatingGetForDelete } from 'src/models/MovieRatingGetForDelete';
 import { MovieRatingsList } from 'src/models/MovieRatingsList';
-
+import { MovieCommentForList } from 'src/models/MovieCommentForList';
+ 
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ getValutazione(movie_id: number | null, user_id: number | null){
   return this.httpClient.get<MovieRatingsList>(`http://localhost:8000/api/confront/${movie_id}/${user_id}`);
 }
 getValutazioniByUserId( user_id: number | null){
-  return this.httpClient.get<MovieRating[]>(`http://localhost:8000/api/user_id/${user_id}`);
+  return this.httpClient.get<MovieRatingsList>(`http://localhost:8000/api/user_id/${user_id}`);
 }
 postValutazione(movieRating: MovieRating | null){
   return this.httpClient.post<MovieRating>(`http://localhost:8000/api/movie`, movieRating);
@@ -34,13 +35,16 @@ deleteValutazione(movie_id: number | null, user_id: number | null){
 
 // .NET
 getCommento(user_id: number, movie_id: number | null){
-  return this.httpClient.get<MovieComment>(`http://localhost:5167/comments/${user_id}/${movie_id}`);
+  return this.httpClient.get<MovieCommentForList>(`http://localhost:5167/comments/${user_id}/${movie_id}`);
 }
 postCommento(movieComment: MovieComment){
   return this.httpClient.post<MovieComment>(`http://localhost:5167/comments/`, movieComment);
 }
 deleteCommento(user_id: number, movie_id: number){
   return this.httpClient.delete<MovieComment>(`http://localhost:5167/comments/${user_id}/${movie_id}`);
+}
+getListaCommentiByUserId(user_id: number){
+  return this.httpClient.get<MovieCommentForList[]>(`http://localhost:5167/comments/${user_id}`);
 }
 
 // Node.js

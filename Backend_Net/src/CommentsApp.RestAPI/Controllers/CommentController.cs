@@ -30,6 +30,15 @@ namespace CommentsApp.RestAPI.Controllers
 
         [EnableCors("MyPolicy")]
         [HttpGet]
+        [Route("{user-id}")]
+        public ActionResult<List<CommentDTO>> GetCommentListByUserId([FromRoute(Name = "user-id")] int userId)
+        {
+            var commentList = _applicationService.GetAllCommentsByUserID(userId);
+            return Ok(commentList.Select(comment => CommentMapper.From(comment)));
+        }
+
+        [EnableCors("MyPolicy")]
+        [HttpGet]
         [Route("{user-id}/{movie-id}")]
         public ActionResult<CommentDTO> GetCommentById([FromRoute(Name = "user-id")] int userId, [FromRoute(Name = "movie-id")] int movieId)
         {
