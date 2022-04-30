@@ -16,16 +16,19 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="movieItem" *ngFor="let movie of filteredMovieList">
+            <div class="movieItem" *ngFor="let movie of filteredMovieList" >
                 <h2 class="title" (click)="onMovieClick(movie.id)">{{movie.title}}</h2>
-                <p class="overview"> Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.</p>
+                
+                <div id="" *ngFor="let rating of ratingsMovieList">
+                    <p id="ratings" *ngIf="rating.movie_id === movie.id"> {{rating.movie_id}} </p>
+                </div>
+
+                <div id="" *ngFor="let comment of commentsMovieList">
+                    <p id="comment" *ngIf="comment.movie_id === movie.id"> {{comment.movie_id}} </p>
+                </div>
+
                 <fa-icon class="iconTrash" [icon]="trashIcon" size="lg" (click)="deleteFavMovie(movie.id)"></fa-icon>
             </div>
         </div>
     </div>
-    <div class="container">
-
-
-    </div>
+</div>

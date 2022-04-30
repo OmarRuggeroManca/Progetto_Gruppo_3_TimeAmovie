@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\orman\\.nuget\\packages\\": {}
+    "C:\\Users\\utente\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj",
+      "projectUniqueName": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj",
       "projectName": "CommentsApp.Core",
-      "projectPath": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj",
-      "packagesPath": "C:\\Users\\orman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\obj\\",
+      "projectPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj",
+      "packagesPath": "C:\\Users\\utente\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\orman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\utente\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -6,7 +6,8 @@ import { BackendAPIService } from 'src/services/backend-api.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MovieFav } from 'src/models/MovieFav';
 import { MovieData } from 'src/models/MovieData';
-import { MovieRatingGetForDelete } from 'src/models/MovieRatingGetForDelete';
+import { MovieRating } from 'src/models/MovieRating';
+import { MovieComment } from 'src/models/MovieComment';
 
 @Component({
   selector: 'app-movie-list',
@@ -19,6 +20,8 @@ export class MovieListComponent implements OnInit {
   movieIdList: MovieFav[] = [];
   movieList: MovieData[] = [];
   filteredMovieList: MovieData[] = [];
+  ratingsMovieList: MovieRating[] = [];
+  commentsMovieList: MovieComment[] = [];
   filter: string = '';
 
   //Icone
@@ -36,13 +39,33 @@ export class MovieListComponent implements OnInit {
   }
 
   getList() {
+    //Recuper lista preferiti da Node
     this.backendAPIService.getListaPreferiti().subscribe({
-      next: (res) => {
-        this.movieIdList = res;
+      next: (movieList) => {
+        this.movieIdList = movieList;
         for (let i = 0; i < this.movieIdList.length; i++) {
+          //Per ogni movieId recupero le sue informazioni
           let id = this.movieIdList[i].movie_id;
           this.apiMovieService.getMovieById(id).subscribe({
-            next: (val) => this.movieList[i] = this.filteredMovieList[i] = val
+            next: (movie) => {
+              this.movieList[i] = this.filteredMovieList[i] = movie;
+              //Recupero tutte le valutazioni dell'utente
+              this.backendAPIService.getValutazioniByUserId(this.backendAPIService.userActive.id).subscribe({
+                next: (ratings) => {
+                  this.ratingsMovieList = ratings;
+                  //Per ogni film recupero il commento corrispondente e lo metto nel suo array
+                  for (let i = 0; i < this.filteredMovieList.length; i++) {
+                    this.backendAPIService.getCommento(this.backendAPIService.userActive.id, this.filteredMovieList[i].id).subscribe({
+                      next: (comment) => {
+                        this.commentsMovieList.push(comment);
+                        console.log(this.ratingsMovieList);
+                        console.log(this.commentsMovieList);
+                      }
+                    })
+                  }
+                }
+              })
+            }
           })
         }
       }
@@ -53,8 +76,6 @@ export class MovieListComponent implements OnInit {
     this.router.navigateByUrl(`/movie/${event}`)
   }
 
-
-  //Implementare eliminazione rating(Laravel)
   deleteFavMovie(event: number) {
     this.backendAPIService.deleteFilmPreferito(event).subscribe({
       next: () => {
@@ -75,7 +96,7 @@ export class MovieListComponent implements OnInit {
       error: () => console.log("Errore Node")
     });
 
-    
+
   }
 
 

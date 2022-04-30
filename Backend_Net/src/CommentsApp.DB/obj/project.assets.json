@@ -758,19 +758,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\orman\\.nuget\\packages\\": {}
+    "C:\\Users\\utente\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj",
+      "projectUniqueName": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj",
       "projectName": "CommentsApp.DB",
-      "projectPath": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj",
-      "packagesPath": "C:\\Users\\orman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\obj\\",
+      "projectPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\CommentsApp.DB.csproj",
+      "packagesPath": "C:\\Users\\utente\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.DB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\orman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\utente\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -784,8 +784,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj": {
-              "projectPath": "C:\\Users\\orman\\Desktop\\Progetto finale VI\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj"
+            "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj": {
+              "projectPath": "C:\\Users\\utente\\Desktop\\GIT\\Progetto_TNV\\Progetto_Gruppo_3_TimeAmovie\\Backend_Net\\src\\CommentsApp.Core\\CommentsApp.Core.csproj"
             }
           }
         }
