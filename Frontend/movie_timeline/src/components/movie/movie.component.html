@@ -3,11 +3,20 @@
   <div class="container">
     <div class="row ">
       <!--Locandina -->
-      <div class="col-md-6">
+      <div *ngIf="movie.poster_path != null; else elseBlock " class="col-md-6">
         <div class="poster_container">
           <img id="poster" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="90%" height="70%">
         </div>
       </div>
+
+       <!--Immagine alternativa in mancanza di locandina-->
+      <ng-template #elseBlock>
+      <div class="col-md-6">
+        <div class="poster_container">
+          <img id="poster" src="https://d23gn3985hkc32.cloudfront.net/wp-content/uploads/2020/12/190512-186784-idunno.jpg" width="90%" height="70%">
+        </div>
+      </div>
+    </ng-template>
 
       <!--Informazioni del film-->
       <div class="col-md-6">

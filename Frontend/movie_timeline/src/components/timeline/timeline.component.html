@@ -37,7 +37,7 @@
             <div class="col-md-8">
                 <div class="card-body" id="boxTimeline">
                     <div id="content">
-                        <!--- <fa-icon id="primary-button" [icon]="downloadIcon" (click)="downloadPDF()"></fa-icon>-->
+                        <!--- <fa-icon id="primary-button" [icon]="downloadIcon" (click)="makePDF()"></fa-icon>-->
                         <ul class="timeline">
                             <li *ngFor="let actorMovie of orderedMovies" class="event"
                                 attr.value={{actorMovie.release_date?.substring(0,4)}}
