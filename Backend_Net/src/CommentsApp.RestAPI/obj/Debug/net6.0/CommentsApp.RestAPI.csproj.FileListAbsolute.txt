@@ -145,3 +145,40 @@ C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_N
 C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.pdb
 C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.genruntimeconfig.cache
 C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\ref\CommentsApp.RestAPI.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.RestAPI.exe
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.RestAPI.deps.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.RestAPI.runtimeconfig.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.RestAPI.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\ref\CommentsApp.RestAPI.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.RestAPI.pdb
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.DB.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.Core.pdb
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\bin\Debug\net6.0\CommentsApp.DB.pdb
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.csproj.AssemblyReference.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.AssemblyInfoInputs.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.AssemblyInfo.cs
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.csproj.CoreCompileInputs.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\scopedcss\bundle\CommentsApp.RestAPI.styles.css
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.csproj.CopyComplete
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\ref\CommentsApp.RestAPI.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.pdb
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.RestAPI\obj\Debug\net6.0\CommentsApp.RestAPI.genruntimeconfig.cache

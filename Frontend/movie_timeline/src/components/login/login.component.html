@@ -1,15 +1,12 @@
-
+<!-- Prompt di errori riguardanti le credenziali -->
+<div  id="errors">
+  <p *ngIf="usernameOrPasswordWrong === true" on> Username e Password errati!</p>
+</div>  
+  
 <form class="form-horizontal" id="userForm" #user="ngForm" (submit)="login(user)">
   <div id="contentForm">
 
-    <div div class="form-floating mb-3">
-
-      <!-- Prompt di errori riguardanti le credenziali 
-        <p *ngIf="usernameOrPasswordWrong === true"  style=" color: darkred; font-size: x-large" on> Username e Password errati!</p>
-        <p *ngIf="usernameNull === true" style=" color: darkred; font-size: x-large"> Username è un campo obbligatorio!</p>
-        <p *ngIf="passwordNull === true" style=" color: darkred; font-size: x-large"> Password è un campo obbligatorio!</p>-->
-      <!-- (click)="resetStates()" resetta le variabili dei messaggi di errore a false -->
-
+    <div div class="form-floating mb-3">      
       <!-- username input -->
       <input id="username" (click)="resetStates()" [ngModel] name="username" type="username"
         class="form-control form-control-lg" placeholder="name@example.com" required>
@@ -26,3 +23,4 @@
   </div>
   <button type="submit" id="primary-button" [disabled]="!user.form.valid">Accedi</button>
 </form>
+

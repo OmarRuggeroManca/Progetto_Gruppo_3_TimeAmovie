@@ -7,10 +7,10 @@ public class ApplicationDbContext : DbContext
     public DbSet<CommentEntity> Comments{ get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = "Server=localhost;Port=3306;Database=moviecomments;Uid=root;pwd=";
-        var mariaDbServerVersion = new MariaDbServerVersion(new Version(10, 4, 22));
+        var connectionString = "Server=localhost;Port=3306;Database=moviecomments;Uid=root;pwd=root";
+        var mySqlServerVersion = new MySqlServerVersion(new Version(5, 7, 24));
 
-        optionsBuilder.UseMySql(connectionString, mariaDbServerVersion);
+        optionsBuilder.UseMySql(connectionString, mySqlServerVersion);
         base.OnConfiguring(optionsBuilder);
     }
 }

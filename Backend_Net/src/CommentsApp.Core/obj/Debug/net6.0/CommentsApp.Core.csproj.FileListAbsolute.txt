@@ -46,3 +46,15 @@ C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_N
 C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\refint\CommentsApp.Core.dll
 C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.pdb
 C:\Users\orman\Desktop\Progetto finale VI\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\ref\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\bin\Debug\net6.0\CommentsApp.Core.deps.json
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\bin\Debug\net6.0\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\bin\Debug\net6.0\ref\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\bin\Debug\net6.0\CommentsApp.Core.pdb
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.csproj.AssemblyReference.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.AssemblyInfoInputs.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.AssemblyInfo.cs
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\ref\CommentsApp.Core.dll
+C:\Users\Ciao\Desktop\TimelineApplication\Progetto_Gruppo_3_TimeAmovie\Backend_Net\src\CommentsApp.Core\obj\Debug\net6.0\CommentsApp.Core.pdb
